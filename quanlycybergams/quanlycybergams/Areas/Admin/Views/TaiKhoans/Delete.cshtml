@@ -49,6 +49,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Matkhau)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GiaMay)
+                            </th>
                         </tr>
                     </thead>
 
@@ -91,6 +94,9 @@
                                 @Html.DisplayFor(model => model.Matkhau)
                             </td>
                             <td>
+                                @Html.DisplayFor(model => model.GiaMay)
+                            </td>
+                            <td>
                                 @using (Html.BeginForm())
                                 {
                                     @Html.AntiForgeryToken()
@@ -99,7 +105,7 @@
                                         <button class="btn-sm btn-danger" type="submit" name="delete">Xóa <i class="fa fa-trash"></i></button>
                                     </div>
                                 }
-</tr>
+                        </tr>
                     </tbody>
                 </table>
                 <!-- /.card-body -->

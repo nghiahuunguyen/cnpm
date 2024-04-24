@@ -41,13 +41,10 @@
                             <tr>
                                 <th>@Html.DisplayNameFor(model => model.ID_KhachHang)</th>
                                 <th>@Html.DisplayNameFor(model => model.TenKhachHang)</th>
-                                <th>@Html.DisplayNameFor(model => model.SDT)</th>
-                                <th>@Html.DisplayNameFor(model => model.GioiTinh)</th>
                                 <th>@Html.DisplayNameFor(model => model.ThoiGianGiaNhap)</th>
                                 <th>@Html.DisplayNameFor(model => model.LoaiKhachHang)</th>
                                 <th>@Html.DisplayNameFor(model => model.TenDN)</th>
-                                <th>@Html.DisplayNameFor(model => model.Matkhau)</th>
-  
+                                <th>@Html.DisplayNameFor(model => model.GiaMay)</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -57,24 +54,10 @@
                                 <tr>
                                     <td>@Html.DisplayFor(modelItem => item.ID_KhachHang)</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenKhachHang)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.SDT)</td>
-                                    <td>
-                                        @if (item.GioiTinh.HasValue)
-                                        {
-                                            if (item.GioiTinh.Value)
-                                            {
-                                                <span>Nam</span>
-                                            }
-                                            else
-                                            {
-                                                <span>Nữ</span>
-                                            }
-                                        }
-                                    </td>
                                     <td>@Html.DisplayFor(modelItem => item.ThoiGianGiaNhap)</td>
                                     <td>@Html.DisplayFor(modelItem => item.LoaiKhachHang)</td>
                                     <td>@Html.DisplayFor(modelItem => item.TenDN)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Matkhau)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.GiaMay)</td>
                                     <td>
                                         <a href="@Url.Action("Edit", "TaiKhoans", new { id = item.ID_KhachHang })" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
                                         <a href="@Url.Action("Details", "TaiKhoans", new { id = item.ID_KhachHang })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>

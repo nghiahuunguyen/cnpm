@@ -24,15 +24,12 @@ namespace quanlycybergams.Controllers
 
             if (user != null)
             {
-                // Check if the user is an admin (assuming the admin user has a specific ID_TK value, e.g., 1)
                 if (user.ID_KhachHang == "Admin")
                 {
                     return RedirectToAction("Index", "Admin");
                 }
                 else
                 {
-                    // Handle non-admin user case
-                    // For example, redirect to a different page or display an error message
                     ViewBag.ErrorMessage = "You are not authorized to access the admin area.";
                     return View();
                 }

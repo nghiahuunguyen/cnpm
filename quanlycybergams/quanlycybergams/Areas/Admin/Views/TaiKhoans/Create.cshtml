@@ -96,6 +96,13 @@
                                         @Html.ValidationMessageFor(model => model.Matkhau, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.GiaMay, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(model => model.GiaMay, new { @class = "form-control", @rows = "5" })
+                                        @Html.ValidationMessageFor(model => model.GiaMay, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

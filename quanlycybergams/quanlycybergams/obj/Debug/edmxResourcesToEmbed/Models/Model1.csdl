@@ -72,16 +72,6 @@
     <NavigationProperty Name="DonGia" Relationship="Self.FK__May__ID_gia__286302EC" FromRole="May" ToRole="DonGia" />
     <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__ID_May__38996AB5" FromRole="May" ToRole="HoaDon" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
       <PropertyRef Name="ID_KhachHang" />
@@ -94,6 +84,7 @@
     <Property Name="LoaiKhachHang" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
     <Property Name="TenDN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Matkhau" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="GiaMay" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="DonHangs" Relationship="Self.FK__DonHang__ID_Khac__300424B4" FromRole="TaiKhoan" ToRole="DonHang" />
     <NavigationProperty Name="HoaDons" Relationship="Self.FK__HoaDon__ID_Khach__36B12243" FromRole="TaiKhoan" ToRole="HoaDon" />
     <NavigationProperty Name="ThanhToanDVs" Relationship="Self.FK__ThanhToan__ID_Kh__33D4B598" FromRole="TaiKhoan" ToRole="ThanhToanDV" />
@@ -210,7 +201,6 @@
     <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
     <EntitySet Name="Khoes" EntityType="Self.Kho" />
     <EntitySet Name="Mays" EntityType="Self.May" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
     <EntitySet Name="ThanhToanDVs" EntityType="Self.ThanhToanDV" />
     <AssociationSet Name="FK__DichVu__ID_Matha__2D27B809" Association="Self.FK__DichVu__ID_Matha__2D27B809">

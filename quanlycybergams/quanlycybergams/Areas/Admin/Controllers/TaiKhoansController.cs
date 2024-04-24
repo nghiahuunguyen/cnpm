@@ -46,7 +46,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,LoaiKhachHang,TenDN,Matkhau")] TaiKhoan taiKhoan)
+        public ActionResult Create([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,LoaiKhachHang,TenDN,Matkhau,GiaMay")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,LoaiKhachHang,TenDN,Matkhau")] TaiKhoan taiKhoan)
+        public ActionResult Edit([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,LoaiKhachHang,TenDN,Matkhau,GiaMay")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {

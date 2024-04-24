@@ -22,6 +22,7 @@ namespace quanlycybergams.Models
             this.HoaDons = new HashSet<HoaDon>();
             this.ThanhToanDVs = new HashSet<ThanhToanDV>();
         }
+
         [Display(Name = "ID Khách Hàng")]
         [Required(ErrorMessage = "Không được để trống")]
         public string ID_KhachHang { get; set; }
@@ -44,6 +45,8 @@ namespace quanlycybergams.Models
         [Display(Name = "Mật Khẩu")]
         [Required(ErrorMessage = "Không được để trống")]
         public string Matkhau { get; set; }
+        [Display(Name = "Giá Máy")]
+        public Nullable<decimal> GiaMay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
