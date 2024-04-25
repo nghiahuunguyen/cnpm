@@ -1,0 +1,59 @@
+﻿@model IEnumerable<quanlycybergams.Models.May>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TenMay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhTrangMay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoatDong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DonGia.ID_gia)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenMay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangMay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoatDong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia.ID_gia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID_May }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID_May }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID_May })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
