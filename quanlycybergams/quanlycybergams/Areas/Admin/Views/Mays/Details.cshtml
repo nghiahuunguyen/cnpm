@@ -1,0 +1,58 @@
+﻿@model quanlycybergams.Models.May
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>May</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenMay)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TenMay)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TinhTrangMay)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TinhTrangMay)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.HoatDong)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.HoatDong)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DonGia.ID_gia)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DonGia.ID_gia)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_May }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

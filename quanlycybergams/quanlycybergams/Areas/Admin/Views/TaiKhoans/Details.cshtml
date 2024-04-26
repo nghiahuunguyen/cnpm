@@ -1,0 +1,90 @@
+﻿@model quanlycybergams.Models.TaiKhoan
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>TaiKhoan</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenKhachHang)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TenKhachHang)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SDT)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SDT)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.GioiTinh)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.GioiTinh)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGianGiaNhap)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianGiaNhap)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LoaiKhachHang)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LoaiKhachHang)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TenDN)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TenDN)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Matkhau)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Matkhau)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaMay)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.GiaMay)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_KhachHang }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

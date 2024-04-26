@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4fe34086f6c947a7bd9145504407df4d" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.DichVu" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.DonGia" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.DonHang" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.HoaDon" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.Kho" Width="1.5" PointX="1.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.May" Width="1.5" PointX="3" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.TaiKhoan" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.ThanhToanDV" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__DichVu__ID_Matha__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__DonHang__ID_DV__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__May__ID_gia__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__DonHang__ID_Khac__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__HoaDon__ID_Khach__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__HoaDon__ID_May__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__HoaDon__ID_TTDV__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__ThanhToan__ID_Kh__33D4B598" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
