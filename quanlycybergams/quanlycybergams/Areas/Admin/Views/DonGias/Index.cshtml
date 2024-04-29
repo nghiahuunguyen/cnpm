@@ -5,65 +5,58 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@section header{
-    <link href="~/Public/css/jquery.dataTables.min.css" rel="stylesheet" />
-}
-@section footer{
-    <script src="~/Public/js/jquery.dataTables.min.js"></script>
-    <script>let table = new DataTable('#myTable');</script>
-}
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
 
-<div class="wrapper">
-    <!-- Main Sidebar Container -->
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Main content -->
-        <section class="content">
-
-            <!-- Default box -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <strong class="text-danger"> TÀI KHOẢN</strong>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <a href="@Url.Action("Create", "DonGias")" class="btn-sm btn-success"><i class="fa fa-plus"> Tạo tài khoản</i></a>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-
-                    <table class="table table-bordered  table-striped" id="myTable">
-                        <thead>
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">ĐƠN GIÁ</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Create", "DonGias")" class="btn btn-success"><i class="fa fa-plus"> Thêm mới</i></a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.ID_gia)</th>
+                            <th>@Html.DisplayNameFor(model => model.GiaMay)</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
                             <tr>
-                                <th>@Html.DisplayNameFor(model => model.ID_gia)</th>
-                                <th>@Html.DisplayNameFor(model => model.GiaMay)</th>
-                                <th>Chức năng</th>
+                                <td>@Html.DisplayFor(modelItem => item.ID_gia)</td>
+                                <td>@Html.DisplayFor(modelItem => item.GiaMay)</td>
+                                <td class="border-bottom-0">
+                                    <a href="#@Url.Action("Edit", "DonGias", new { id = item.ID_gia })">
+                                        <button type="button" class="btn btn-success">
+                                            <i class="ti ti-edit"></i>
+                                        </button>
+                                    </a>
+
+                                    <a href="@Url.Action("Details", "DonGias", new { id = item.ID_gia })">
+                                        <button type="button" class="btn btn-info">
+                                            <i class="ti ti-eye"></i>
+                                        </button>
+                                    </a>
+
+                                    <a href="@Url.Action("Delete", "DonGias", new { id = item.ID_gia })">
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
+                                    </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.ID_gia)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.GiaMay)</td>
-                                    <td>
-                                        <a href="@Url.Action("Edit", "DonGias", new { id = item.ID_gia})" class="btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="@Url.Action("Details", "DonGias", new { id = item.ID_gia })" class="btn-sm btn-info"><i class="fa fa-eye"></i></a>
-                                        <a href="@Url.Action("Delete", "DonGias", new { id = item.ID_gia })" class="btn-sm btn-danger"><i class="fa fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-
-
-                    </table>
-
-                </div> <!-- /.card-footer-->
-            </div><!-- /.card -->
-        </section><!-- /.content -->
-    </div> <!-- /.content-wrapper -->
-</div><!-- ./wrapper -->
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -81,5 +81,3 @@ D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.csp
 D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.csproj.CopyComplete
 D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.dll
 D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.pdb
-D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.Properties.Resources.resources
-D:\congnghephanmem\quanlycybergams\quanlycybergams\obj\Debug\quanlycybergams.csproj.GenerateResource.cache

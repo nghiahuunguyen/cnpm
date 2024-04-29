@@ -1,0 +1,82 @@
+﻿@model quanlycybergams.Models.HoaDon
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>HoaDon</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGianMo)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianMo)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGianTat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianTat)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TongTien)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TinhTrangHD)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TinhTrangHD)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TaiKhoan.TenKhachHang)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.May.TenMay)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.May.TenMay)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ThanhToanDV.ID_KhachHang)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ThanhToanDV.ID_KhachHang)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID_HoaDon }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

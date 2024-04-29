@@ -1,0 +1,77 @@
+﻿@model IEnumerable<quanlycybergams.Models.HoaDon>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianMo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThoiGianTat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TongTien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TinhTrangHD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.May.TenMay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ThanhToanDV.ID_KhachHang)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianMo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThoiGianTat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TinhTrangHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaiKhoan.TenKhachHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.May.TenMay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhToanDV.ID_KhachHang)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ID_HoaDon }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ID_HoaDon }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ID_HoaDon })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
