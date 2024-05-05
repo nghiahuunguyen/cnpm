@@ -15,16 +15,16 @@ namespace quanlycybergams.Models
     public partial class HoaDon
     {
         public string ID_HoaDon { get; set; }
-        public string ID_TTDV { get; set; }
         public string ID_May { get; set; }
         public Nullable<System.DateTime> ThoiGianMo { get; set; }
         public Nullable<System.DateTime> ThoiGianTat { get; set; }
         public Nullable<decimal> TongTien { get; set; }
         public string TinhTrangHD { get; set; }
         public string ID_KhachHang { get; set; }
+        public string MaDH { get; set; }
     
+        public virtual DonHang DonHang { get; set; }
         public virtual TaiKhoan TaiKhoan { get; set; }
         public virtual May May { get; set; }
-        public virtual ThanhToanDV ThanhToanDV { get; set; }
     }
 }

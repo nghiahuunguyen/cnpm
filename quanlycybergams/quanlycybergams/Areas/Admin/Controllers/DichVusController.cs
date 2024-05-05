@@ -39,6 +39,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/DichVus/Create
         public ActionResult Create()
         {
+            List<Kho> List = db.Khoes.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_Mathang = new SelectList(db.Khoes, "ID_Mathang", "TenMatHang");
             return View();
         }
@@ -56,7 +58,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            List<Kho> List = db.Khoes.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_Mathang = new SelectList(db.Khoes, "ID_Mathang", "TenMatHang", dichVu.ID_Mathang);
             return View(dichVu);
         }
@@ -73,6 +76,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            List<Kho> List = db.Khoes.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_Mathang = new SelectList(db.Khoes, "ID_Mathang", "TenMatHang", dichVu.ID_Mathang);
             return View(dichVu);
         }
@@ -90,6 +95,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            List<Kho> List = db.Khoes.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_Mathang = new SelectList(db.Khoes, "ID_Mathang", "TenMatHang", dichVu.ID_Mathang);
             return View(dichVu);
         }

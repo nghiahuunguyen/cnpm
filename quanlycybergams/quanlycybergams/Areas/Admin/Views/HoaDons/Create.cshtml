@@ -1,99 +1,90 @@
 ﻿@model quanlycybergams.Models.HoaDon
 
 @{
-    Layout = null;
+    ViewBag.Title = "Tạo mới hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!DOCTYPE html>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-    @using (Html.BeginForm()) 
-    {
-        @Html.AntiForgeryToken()
-        
-        <div class="form-horizontal">
-            <h4>HoaDon</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_HoaDon, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ID_HoaDon, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ID_HoaDon, "", new { @class = "text-danger" })
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <!--  Header End -->
+            <div class="container-fluid">
+                <div class="my-3">
+                    <h1 class="fw-bolder text-center">TẠO MỚI HÓA ĐƠN </h1>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_TTDV, "ID_TTDV", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_TTDV", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_TTDV, "", new { @class = "text-danger" })
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Index","HoaDon")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_May, "ID_May", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_May", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_May, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ID_HoaDon, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ID_HoaDon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ID_HoaDon, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ThoiGianMo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ThoiGianMo, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ThoiGianMo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ThoiGianTat, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ThoiGianTat, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ThoiGianTat, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.TinhTrangHD, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.TinhTrangHD, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TinhTrangHD, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.ID_KhachHang, "ID_KhachHang", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("ID_KhachHang", null, htmlAttributes: new { @class = "form-control" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ID_KhachHang, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.ID_KhachHang, new SelectList((List<quanlycybergams.Models.TaiKhoan>)ViewBag.KH, "ID_KhachHang", "TenKhachHang"), "Chọn khách hàng", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ID_KhachHang, "", new { @class = "text-danger" })
                 </div>
-            </div>
-    
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MaDH, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.MaDH, new SelectList((List<quanlycybergams.Models.DonHang>)ViewBag.DH,"MaDH", "MaDH"), "Chọn đơn hàng", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaDH, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ID_May, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.ID_May, new SelectList((List<quanlycybergams.Models.May>)ViewBag.May, "ID_May", "TenMay"), "Chọn máy", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ID_May, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ThoiGianMo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ThoiGianMo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ThoiGianMo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ThoiGianTat, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.ThoiGianTat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ThoiGianTat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TinhTrangHD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TinhTrangHD, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TinhTrangHD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TongTien, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TongTien, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TongTien, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-success create-button" />
+                    </div>
                 </div>
             </div>
         </div>
-    }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
     </div>
-</body>
-</html>
+}

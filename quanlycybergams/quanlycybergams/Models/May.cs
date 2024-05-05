@@ -24,8 +24,8 @@ namespace quanlycybergams.Models
         public string TenMay { get; set; }
         public string TinhTrangMay { get; set; }
         public string ID_gia { get; set; }
-        public Nullable<bool> HoatDong { get; set; }
-    
+        public bool? HoatDong { get; set; }
+
         public virtual DonGia DonGia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }

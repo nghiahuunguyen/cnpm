@@ -34,7 +34,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.ID_gia)</td>
                                 <td>@Html.DisplayFor(modelItem => item.GiaMay)</td>
                                 <td class="border-bottom-0">
-                                    <a href="#@Url.Action("Edit", "DonGias", new { id = item.ID_gia })">
+                                    <a href="@Url.Action("Edit", "DonGias", new { id = item.ID_gia })">
                                         <button type="button" class="btn btn-success">
                                             <i class="ti ti-edit"></i>
                                         </button>

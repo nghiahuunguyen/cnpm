@@ -25,8 +25,12 @@
                                 @Html.DisplayNameFor(model => model.MaDH)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.tongGia)
+                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                            </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.ghiChu)
                             </th>
@@ -34,10 +38,7 @@
                                 @Html.DisplayNameFor(model => model.ngayDatHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                                @Html.DisplayNameFor(model => model.tongGia)
                             </th>
                             <th>Chức năng</th>
                         </tr>
@@ -50,8 +51,12 @@
                                     @Html.DisplayFor(modelItem => item.MaDH)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.tongGia)
+                                    @Html.DisplayFor(modelItem => item.DichVu.TenDV)
                                 </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TaiKhoan.TenKhachHang)
+                                </td>
+
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ghiChu)
                                 </td>
@@ -59,10 +64,7 @@
                                     @Html.DisplayFor(modelItem => item.ngayDatHang)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.DichVu.TenDV)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TaiKhoan.TenKhachHang)
+                                    @Html.DisplayFor(modelItem => item.tongGia)
                                 </td>
                                 <td class="border-bottom-0">
                                     <a href="@Url.Action("Edit", "DonHangs", new { id = item.ID_DV })">

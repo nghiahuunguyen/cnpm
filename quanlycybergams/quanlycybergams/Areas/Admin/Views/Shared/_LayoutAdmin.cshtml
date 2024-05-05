@@ -23,7 +23,8 @@
 </style>
 
 @*Khu vuc body*@
-<body class="hold-transition sidebar-mini">
+<body class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
 
     <div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
          data-sidebar-position="fixed" data-header-position="fixed">
@@ -47,7 +48,7 @@
                             <span class="hide-menu">TRANG CHỦ</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link" href="@Url.Action("Index","Admin")" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-screen-share"></i>
                                 </span>
@@ -59,7 +60,7 @@
                             <span class="hide-menu">QUẢN LÝ</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./donhang.html" aria-expanded="false">
+                            <a class="sidebar-link" href="@Url.Action("Index","DonHangs")" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-article"></i>
                                 </span>
@@ -67,11 +68,20 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./khachhang.html" aria-expanded="false">
+                            <a class="sidebar-link" href="@Url.Action("Index","TaiKhoans")" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-user-circle"></i>
+                                    <i class="ti ti-cardboards"></i>
                                 </span>
-                                <span class="hide-menu">Khách hàng</span>
+                                <span class="hide-menu">Tài Khoản</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="@Url.Action("Index","Khos")" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-package"></i>
+                                </span>
+                                <span class="hide-menu">Kho</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -79,15 +89,7 @@
                                 <span>
                                     <i class="ti ti-cardboards"></i>
                                 </span>
-                                <span class="hide-menu">Tài khoản</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="./kho.html" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-package"></i>
-                                </span>
-                                <span class="hide-menu">Kho</span>
+                                <span class="hide-menu">Khác</span>
                             </a>
                         </li>
                         <li class="nav-small-cap">
@@ -95,7 +97,7 @@
                             <span class="hide-menu">THAO TÁC</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                            <a class="sidebar-link" href="https://localhost:44346" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-login"></i>
                                 </span>

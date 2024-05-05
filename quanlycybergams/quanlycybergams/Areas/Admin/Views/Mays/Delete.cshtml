@@ -1,64 +1,80 @@
 ﻿@model quanlycybergams.Models.May
 
 @{
-    Layout = null;
+    ViewBag.Title = "Xác nhận xóa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!DOCTYPE html>
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
-    <h3>Are you sure you want to delete this?</h3>
-    <div>
-        <h4>May</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.TenMay)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TenMay)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.TinhTrangMay)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.TinhTrangMay)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.HoatDong)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.HoatDong)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.DonGia.ID_gia)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.DonGia.ID_gia)
-            </dd>
-    
-        </dl>
-    
-        @using (Html.BeginForm()) {
-            @Html.AntiForgeryToken()
-    
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">XÁC NHẬN XÓA </h1>
             </div>
-        }
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Index","Mays")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenMay)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TinhTrangMay)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HoatDong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DonGia.ID_gia)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.TenMay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TinhTrangMay)
+                            </td>
+                            <td>
+                                @if (Model.HoatDong.HasValue && Model.HoatDong.Value)
+                                {
+                                    <span class="text-success">Hoạt động</span>
+                                }
+                                else if (Model.HoatDong.HasValue && !Model.HoatDong.Value)
+                                {
+                                    <span class="text-danger">Hư máy</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Không hoạt động</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.DonGia.ID_gia)
+                            </td>
+                            <td>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+
+                                    <div class="form-actions no-color">
+                                        <button class="btn btn-danger" type="submit" name="delete">Xóa <i class="fa fa-trash"></i></button>
+                                    </div>
+                                }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>

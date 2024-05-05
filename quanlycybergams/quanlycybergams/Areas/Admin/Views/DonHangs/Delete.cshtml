@@ -15,13 +15,21 @@
             <div class="my-3">
                 <h1 class="fw-bolder text-center">XÁC NHÂN XÓA</h1>
             </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Index", "DonHangs")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+            </div>
             <div class="table">
                 <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                     <thead class="text-dark fs-4">
                         <tr>
+                            <th>@Html.DisplayNameFor(model => model.MaDH)</th>
                             <th>
-                                @Html.DisplayNameFor(model => model.tongGia)
+                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                            </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.ghiChu)
                             </th>
@@ -29,18 +37,22 @@
                                 @Html.DisplayNameFor(model => model.ngayDatHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                                @Html.DisplayNameFor(model => model.tongGia)
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                @Html.DisplayFor(model => model.tongGia)
+                                @Html.DisplayFor(model => model.MaDH)
                             </td>
+                            <td>
+                                @Html.DisplayFor(model => model.DichVu.TenDV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenKhachHang)
+                            </td>
+
                             <td>
                                 @Html.DisplayFor(model => model.ghiChu)
                             </td>
@@ -48,7 +60,7 @@
                                 @Html.DisplayFor(model => model.ngayDatHang)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.DichVu.TenDV)
+                                @Html.DisplayFor(model => model.tongGia)
                             </td>
                             <td>
                                 @using (Html.BeginForm())

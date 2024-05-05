@@ -139,7 +139,6 @@
     <Compile Include="Areas\Admin\Controllers\KhosController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaysController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoansController.cs" />
-    <Compile Include="Areas\Admin\Controllers\ThanhToanDVsController.cs" />
     <Compile Include="Controllers\TrangchuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,9 +179,6 @@
     <Compile Include="Models\TaiKhoan.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ThanhToanDV.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,6 +215,9 @@
     <Content Include="Public\admin\css\icons\tabler-icons\tabler-icons.css" />
     <Content Include="Public\admin\css\styles.css" />
     <Content Include="Public\admin\css\stylesadmin.css" />
+    <Content Include="Public\admin\pc\cancel.png" />
+    <Content Include="Public\admin\pc\fix.png" />
+    <Content Include="Public\admin\pc\on.png" />
     <Content Include="Public\css\jquery.dataTables.min.css" />
     <Content Include="Public\css\main.css" />
     <Content Include="Public\css\style.css" />
@@ -274,6 +273,7 @@
     <Content Include="Public\dist\js\pages\dashboard.js" />
     <Content Include="Public\dist\js\pages\dashboard2.js" />
     <Content Include="Public\dist\js\pages\dashboard3.js" />
+    <Content Include="Public\img\anh\sting.jfif" />
     <Content Include="Public\img\bg.png" />
     <Content Include="Public\img\logo.png" />
     <Content Include="Public\img\user-1.jpg" />
@@ -2626,6 +2626,40 @@
     <Content Include="Areas\Admin\Views\TaiKhoans\Details.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
+    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.eot" />
+    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.ttf" />
+    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff" />
+    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff2" />
+    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Khos\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Khos\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Khos\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Khos\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Khos\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonGias\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonGias\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonGias\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonGias\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonGias\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVus\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVus\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVus\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVus\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DichVus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2633,45 +2667,6 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\Mays\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Index.cshtml" />
-    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.eot" />
-    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.ttf" />
-    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff" />
-    <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff2" />
-    <Content Include="Areas\Admin\Views\DichVus\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVus\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVus\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVus\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DichVus\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Khos\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Khos\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Khos\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Khos\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Khos\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\ThanhToanDVs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\ThanhToanDVs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\ThanhToanDVs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\ThanhToanDVs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\ThanhToanDVs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

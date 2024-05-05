@@ -14,6 +14,12 @@ namespace quanlycybergams.Models
     
     public partial class DonHang
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DonHang()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+        }
+    
         public string MaDH { get; set; }
         public string ID_DV { get; set; }
         public Nullable<decimal> tongGia { get; set; }
@@ -23,5 +29,7 @@ namespace quanlycybergams.Models
     
         public virtual DichVu DichVu { get; set; }
         public virtual TaiKhoan TaiKhoan { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

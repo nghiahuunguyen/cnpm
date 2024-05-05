@@ -4,48 +4,48 @@
     <Key>
       <PropertyRef Name="ID_DV" />
     </Key>
-    <Property Name="ID_DV" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_DV" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenDV" Type="nvarchar" MaxLength="30" />
-    <Property Name="AnhSP" Type="nvarchar" MaxLength="50" />
+    <Property Name="AnhSP" Type="nvarchar(max)" />
     <Property Name="GiaBan" Type="money" />
-    <Property Name="ID_Mathang" Type="varchar" MaxLength="5" />
+    <Property Name="ID_Mathang" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="DonGia">
     <Key>
       <PropertyRef Name="ID_gia" />
     </Key>
-    <Property Name="ID_gia" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_gia" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="GiaMay" Type="money" />
   </EntityType>
   <EntityType Name="DonHang">
     <Key>
       <PropertyRef Name="MaDH" />
     </Key>
-    <Property Name="MaDH" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="ID_DV" Type="varchar" MaxLength="5" />
+    <Property Name="MaDH" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="ID_DV" Type="varchar" MaxLength="10" />
     <Property Name="tongGia" Type="decimal" Precision="10" Scale="2" />
     <Property Name="ghiChu" Type="varchar" MaxLength="255" />
     <Property Name="ngayDatHang" Type="date" />
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="5" />
+    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="HoaDon">
     <Key>
       <PropertyRef Name="ID_HoaDon" />
     </Key>
     <Property Name="ID_HoaDon" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="ID_TTDV" Type="varchar" MaxLength="5" />
-    <Property Name="ID_May" Type="varchar" MaxLength="5" />
+    <Property Name="ID_May" Type="varchar" MaxLength="10" />
     <Property Name="ThoiGianMo" Type="datetime" />
     <Property Name="ThoiGianTat" Type="datetime" />
     <Property Name="TongTien" Type="money" />
     <Property Name="TinhTrangHD" Type="nvarchar" MaxLength="50" />
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="5" />
+    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" />
+    <Property Name="MaDH" Type="varchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="Kho">
     <Key>
       <PropertyRef Name="ID_Mathang" />
     </Key>
-    <Property Name="ID_Mathang" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_Mathang" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenMatHang" Type="nvarchar" MaxLength="30" />
     <Property Name="SoLuong" Type="varchar" MaxLength="10" />
     <Property Name="TinhTrang" Type="nvarchar" MaxLength="30" />
@@ -55,17 +55,17 @@
     <Key>
       <PropertyRef Name="ID_May" />
     </Key>
-    <Property Name="ID_May" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_May" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenMay" Type="nvarchar" MaxLength="30" />
     <Property Name="TinhTrangMay" Type="nvarchar" MaxLength="50" />
-    <Property Name="ID_gia" Type="varchar" MaxLength="5" />
+    <Property Name="ID_gia" Type="varchar" MaxLength="10" />
     <Property Name="HoatDong" Type="bit" />
   </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
       <PropertyRef Name="ID_KhachHang" />
     </Key>
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="TenKhachHang" Type="nvarchar" MaxLength="30" />
     <Property Name="SDT" Type="varchar" MaxLength="10" />
     <Property Name="GioiTinh" Type="bit" />
@@ -74,13 +74,6 @@
     <Property Name="TenDN" Type="nvarchar" MaxLength="20" />
     <Property Name="Matkhau" Type="varchar" MaxLength="20" />
     <Property Name="GiaMay" Type="money" />
-  </EntityType>
-  <EntityType Name="ThanhToanDV">
-    <Key>
-      <PropertyRef Name="ID_TTDV" />
-    </Key>
-    <Property Name="ID_TTDV" Type="varchar" MaxLength="5" Nullable="false" />
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="5" />
   </EntityType>
   <Association Name="FK__DichVu__ID_Matha__2D27B809">
     <End Role="Kho" Type="Self.Kho" Multiplicity="0..1" />
@@ -118,7 +111,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HoaDon__ID_Khach__36B12243">
+  <Association Name="FK__HoaDon__ID_Khach__34C8D9D1">
     <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
@@ -130,7 +123,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HoaDon__ID_May__38996AB5">
+  <Association Name="FK__HoaDon__ID_May__35BCFE0A">
     <End Role="May" Type="Self.May" Multiplicity="0..1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
@@ -142,15 +135,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__HoaDon__ID_TTDV__37A5467C">
-    <End Role="ThanhToanDV" Type="Self.ThanhToanDV" Multiplicity="0..1" />
+  <Association Name="FK__HoaDon__MaDH__33D4B598">
+    <End Role="DonHang" Type="Self.DonHang" Multiplicity="0..1" />
     <End Role="HoaDon" Type="Self.HoaDon" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ThanhToanDV">
-        <PropertyRef Name="ID_TTDV" />
+      <Principal Role="DonHang">
+        <PropertyRef Name="MaDH" />
       </Principal>
       <Dependent Role="HoaDon">
-        <PropertyRef Name="ID_TTDV" />
+        <PropertyRef Name="MaDH" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -166,18 +159,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ThanhToan__ID_Kh__33D4B598">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
-    <End Role="ThanhToanDV" Type="Self.ThanhToanDV" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TaiKhoan">
-        <PropertyRef Name="ID_KhachHang" />
-      </Principal>
-      <Dependent Role="ThanhToanDV">
-        <PropertyRef Name="ID_KhachHang" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="QuanLyCYBERGAMESModelStoreContainer">
     <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonGia" EntityType="Self.DonGia" Schema="dbo" store:Type="Tables" />
@@ -186,7 +167,6 @@
     <EntitySet Name="Kho" EntityType="Self.Kho" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="May" EntityType="Self.May" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ThanhToanDV" EntityType="Self.ThanhToanDV" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__DichVu__ID_Matha__2D27B809" Association="Self.FK__DichVu__ID_Matha__2D27B809">
       <End Role="Kho" EntitySet="Kho" />
       <End Role="DichVu" EntitySet="DichVu" />
@@ -199,25 +179,21 @@
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
       <End Role="DonHang" EntitySet="DonHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__HoaDon__ID_Khach__36B12243" Association="Self.FK__HoaDon__ID_Khach__36B12243">
+    <AssociationSet Name="FK__HoaDon__ID_Khach__34C8D9D1" Association="Self.FK__HoaDon__ID_Khach__34C8D9D1">
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
       <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
-    <AssociationSet Name="FK__HoaDon__ID_May__38996AB5" Association="Self.FK__HoaDon__ID_May__38996AB5">
+    <AssociationSet Name="FK__HoaDon__ID_May__35BCFE0A" Association="Self.FK__HoaDon__ID_May__35BCFE0A">
       <End Role="May" EntitySet="May" />
       <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
-    <AssociationSet Name="FK__HoaDon__ID_TTDV__37A5467C" Association="Self.FK__HoaDon__ID_TTDV__37A5467C">
-      <End Role="ThanhToanDV" EntitySet="ThanhToanDV" />
+    <AssociationSet Name="FK__HoaDon__MaDH__33D4B598" Association="Self.FK__HoaDon__MaDH__33D4B598">
+      <End Role="DonHang" EntitySet="DonHang" />
       <End Role="HoaDon" EntitySet="HoaDon" />
     </AssociationSet>
     <AssociationSet Name="FK__May__ID_gia__286302EC" Association="Self.FK__May__ID_gia__286302EC">
       <End Role="DonGia" EntitySet="DonGia" />
       <End Role="May" EntitySet="May" />
-    </AssociationSet>
-    <AssociationSet Name="FK__ThanhToan__ID_Kh__33D4B598" Association="Self.FK__ThanhToan__ID_Kh__33D4B598">
-      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
-      <End Role="ThanhToanDV" EntitySet="ThanhToanDV" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

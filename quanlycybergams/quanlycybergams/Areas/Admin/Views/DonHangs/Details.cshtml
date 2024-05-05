@@ -24,8 +24,12 @@
                     <thead class="text-dark fs-4">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.tongGia)
+                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                            </th>
+
                             <th>
                                 @Html.DisplayNameFor(model => model.ghiChu)
                             </th>
@@ -33,18 +37,19 @@
                                 @Html.DisplayNameFor(model => model.ngayDatHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.DichVu.TenDV)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                                @Html.DisplayNameFor(model => model.tongGia)
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                @Html.DisplayFor(model => model.tongGia)
+                                @Html.DisplayFor(model => model.DichVu.TenDV)
                             </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenKhachHang)
+                            </td>
+
                             <td>
                                 @Html.DisplayFor(model => model.ghiChu)
                             </td>
@@ -52,9 +57,8 @@
                                 @Html.DisplayFor(model => model.ngayDatHang)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.DichVu.TenDV)
+                                @Html.DisplayFor(model => model.tongGia)
                             </td>
-
                         </tr>
                     </tbody>
                 </table>

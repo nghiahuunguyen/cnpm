@@ -36,13 +36,13 @@
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.HoaDon">
         <MappingFragment StoreEntitySet="HoaDon">
           <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
-          <ScalarProperty Name="ID_TTDV" ColumnName="ID_TTDV" />
           <ScalarProperty Name="ID_May" ColumnName="ID_May" />
           <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
           <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
           <ScalarProperty Name="TinhTrangHD" ColumnName="TinhTrangHD" />
           <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -80,14 +80,6 @@
           <ScalarProperty Name="TenDN" ColumnName="TenDN" />
           <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
           <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ThanhToanDVs">
-      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.ThanhToanDV">
-        <MappingFragment StoreEntitySet="ThanhToanDV">
-          <ScalarProperty Name="ID_TTDV" ColumnName="ID_TTDV" />
-          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

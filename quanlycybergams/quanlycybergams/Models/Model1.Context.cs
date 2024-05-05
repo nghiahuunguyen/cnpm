@@ -32,6 +32,5 @@ namespace quanlycybergams.Models
         public virtual DbSet<Kho> Khoes { get; set; }
         public virtual DbSet<May> Mays { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }
-        public virtual DbSet<ThanhToanDV> ThanhToanDVs { get; set; }
     }
 }

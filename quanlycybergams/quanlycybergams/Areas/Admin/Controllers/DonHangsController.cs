@@ -39,6 +39,10 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/DonHangs/Create
         public ActionResult Create()
         {
+            List<TaiKhoan> list = db.TaiKhoans.ToList();
+            ViewBag.KH = list;
+            List<DichVu> List = db.DichVus.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV");
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang");
             return View();
@@ -57,7 +61,10 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            List<TaiKhoan> list = db.TaiKhoans.ToList();
+            ViewBag.KH = list;
+            List<DichVu> List = db.DichVus.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
@@ -75,6 +82,10 @@ namespace quanlycybergams.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            List<TaiKhoan> list = db.TaiKhoans.ToList();
+            ViewBag.KH = list;
+            List<DichVu> List = db.DichVus.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
@@ -93,6 +104,10 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            List<TaiKhoan> list = db.TaiKhoans.ToList();
+            ViewBag.KH = list;
+            List<DichVu> List = db.DichVus.ToList();
+            ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
