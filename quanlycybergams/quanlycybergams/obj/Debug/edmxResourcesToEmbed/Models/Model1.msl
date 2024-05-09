@@ -12,14 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DonGias">
-      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonGia">
-        <MappingFragment StoreEntitySet="DonGia">
-          <ScalarProperty Name="ID_gia" ColumnName="ID_gia" />
-          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="DonHangs">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonHang">
         <MappingFragment StoreEntitySet="DonHang">
@@ -36,13 +28,9 @@
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.HoaDon">
         <MappingFragment StoreEntitySet="HoaDon">
           <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
-          <ScalarProperty Name="ID_May" ColumnName="ID_May" />
-          <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
-          <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="TinhTrangHD" ColumnName="TinhTrangHD" />
-          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
           <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -62,9 +50,11 @@
         <MappingFragment StoreEntitySet="May">
           <ScalarProperty Name="ID_May" ColumnName="ID_May" />
           <ScalarProperty Name="TenMay" ColumnName="TenMay" />
-          <ScalarProperty Name="TinhTrangMay" ColumnName="TinhTrangMay" />
-          <ScalarProperty Name="ID_gia" ColumnName="ID_gia" />
+          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
           <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
+          <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

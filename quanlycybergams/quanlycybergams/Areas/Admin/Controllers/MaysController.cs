@@ -17,8 +17,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/Mays
         public ActionResult Index()
         {
-            var mays = db.Mays.Include(m => m.DonGia);
-            return View(mays.ToList());
+            return View(db.Mays.ToList());
         }
 
         // GET: Admin/Mays/Details/5
@@ -39,9 +38,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/Mays/Create
         public ActionResult Create()
         {
-            List<DonGia> dongiaList = db.DonGias.ToList();
-            ViewBag.DonGia = dongiaList;
-            ViewBag.ID_gia = new SelectList(db.DonGias, "ID_gia", "ID_gia");
             return View();
         }
 
@@ -58,10 +54,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<DonGia> dongiaList = db.DonGias.ToList();
-            ViewBag.DonGia = dongiaList;
-
-            ViewBag.ID_gia = new SelectList(db.DonGias, "ID_gia", "ID_gia", may.ID_gia);
             return View(may);
         }
 
@@ -77,9 +69,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            List<DonGia> dongiaList = db.DonGias.ToList();
-            ViewBag.DonGia = dongiaList;
-            ViewBag.ID_gia = new SelectList(db.DonGias, "ID_gia", "ID_gia", may.ID_gia);
             return View(may);
         }
 
@@ -96,9 +85,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<DonGia> dongiaList = db.DonGias.ToList();
-            ViewBag.DonGia = dongiaList;
-            ViewBag.ID_gia = new SelectList(db.DonGias, "ID_gia", "ID_gia", may.ID_gia);
             return View(may);
         }
 

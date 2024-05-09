@@ -26,7 +26,6 @@ namespace quanlycybergams.Models
         }
     
         public virtual DbSet<DichVu> DichVus { get; set; }
-        public virtual DbSet<DonGia> DonGias { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<Kho> Khoes { get; set; }

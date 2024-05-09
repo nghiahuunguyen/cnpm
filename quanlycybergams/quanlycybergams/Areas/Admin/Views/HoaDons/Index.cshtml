@@ -29,20 +29,9 @@
                                 @Html.DisplayNameFor(model => model.ID_KhachHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ID_May)
-                            </th>
-                            <th>
                                 @Html.DisplayNameFor(model => model.MaDH)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ThoiGianMo)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ThoiGianTat)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TinhTrangHD)
-                            </th>
+                            
                             <th>
                                 @Html.DisplayNameFor(model => model.TongTien)
                             </th>
@@ -53,13 +42,8 @@
                         @foreach (var item in Model)
                         {
                             <tr>
-                                <td>@Html.DisplayFor(modelItem => item.ID_May)</td>
                                 <td>@Html.DisplayFor(modelItem => item.ID_KhachHang)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ID_May)</td>
                                 <td>@Html.DisplayFor(modelItem => item.MaDH)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ThoiGianMo)</td>
-                                <td>@Html.DisplayFor(modelItem => item.ThoiGianTat)</td>
-                                <td>@Html.DisplayFor(modelItem => item.TinhTrangHD)</td>
                                 <td>@Html.DisplayFor(modelItem => item.TongTien)</td>
                                 <td class="border-bottom-0">
                                     <a href="@Url.Action("Edit", "HoaDons", new { id = item.ID_HoaDon })">

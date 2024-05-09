@@ -17,7 +17,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/HoaDons
         public ActionResult Index()
         {
-            var hoaDons = db.HoaDons.Include(h => h.DonHang).Include(h => h.TaiKhoan).Include(h => h.May);
+            var hoaDons = db.HoaDons.Include(h => h.DonHang).Include(h => h.TaiKhoan);
             return View(hoaDons.ToList());
         }
 
@@ -72,7 +72,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
             ViewBag.May = ist;
             ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_DV", hoaDon.MaDH);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", hoaDon.ID_KhachHang);
-            ViewBag.ID_May = new SelectList(db.Mays, "ID_May", "TenMay", hoaDon.ID_May);
             return View(hoaDon);
         }
 
@@ -96,7 +95,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
             ViewBag.May = ist;
             ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_DV", hoaDon.MaDH);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", hoaDon.ID_KhachHang);
-            ViewBag.ID_May = new SelectList(db.Mays, "ID_May", "TenMay", hoaDon.ID_May);
             return View(hoaDon);
         }
 
@@ -115,7 +113,6 @@ namespace quanlycybergams.Areas.Admin.Controllers
             }
             ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_DV", hoaDon.MaDH);
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", hoaDon.ID_KhachHang);
-            ViewBag.ID_May = new SelectList(db.Mays, "ID_May", "TenMay", hoaDon.ID_May);
             return View(hoaDon);
         }
 

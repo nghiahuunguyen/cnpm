@@ -14,20 +14,12 @@ namespace quanlycybergams.Models
     
     public partial class May
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public May()
-        {
-            this.HoaDons = new HashSet<HoaDon>();
-        }
-    
         public string ID_May { get; set; }
         public string TenMay { get; set; }
-        public string TinhTrangMay { get; set; }
-        public string ID_gia { get; set; }
+        public Nullable<decimal> GiaMay { get; set; }
         public bool? HoatDong { get; set; }
-
-        public virtual DonGia DonGia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public Nullable<System.TimeSpan> ThoiGianMo { get; set; }
+        public Nullable<System.TimeSpan> ThoiGianTat { get; set; }
+        public Nullable<decimal> TongTien { get; set; }
     }
 }

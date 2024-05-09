@@ -133,7 +133,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVusController.cs" />
-    <Compile Include="Areas\Admin\Controllers\DonGiasController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhosController.cs" />
@@ -144,9 +143,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DichVu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DonGia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHang.cs">
@@ -217,6 +213,7 @@
     <Content Include="Public\admin\css\stylesadmin.css" />
     <Content Include="Public\admin\pc\cancel.png" />
     <Content Include="Public\admin\pc\fix.png" />
+    <Content Include="Public\admin\pc\off.jfif" />
     <Content Include="Public\admin\pc\on.png" />
     <Content Include="Public\css\jquery.dataTables.min.css" />
     <Content Include="Public\css\main.css" />
@@ -2645,21 +2642,11 @@
     <Content Include="Areas\Admin\Views\Khos\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Khos\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Khos\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonGias\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2667,6 +2654,11 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
