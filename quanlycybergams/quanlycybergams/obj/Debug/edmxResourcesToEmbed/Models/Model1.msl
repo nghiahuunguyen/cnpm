@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="QuanLyCYBERGAMESModelStoreContainer" CdmEntityContainer="QuanLyCYBERGAMESEntities">
+    <EntitySetMapping Name="ChiTietDonHangs">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.ChiTietDonHang">
+        <MappingFragment StoreEntitySet="ChiTietDonHang">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="ID_DV" ColumnName="ID_DV" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="tongGia" ColumnName="tongGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DichVus">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DichVu">
         <MappingFragment StoreEntitySet="DichVu">
@@ -12,25 +22,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DonGias">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonGia">
+        <MappingFragment StoreEntitySet="DonGia">
+          <ScalarProperty Name="ID_gia" ColumnName="ID_gia" />
+          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="DonHangs">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonHang">
         <MappingFragment StoreEntitySet="DonHang">
           <ScalarProperty Name="MaDH" ColumnName="MaDH" />
-          <ScalarProperty Name="ID_DV" ColumnName="ID_DV" />
-          <ScalarProperty Name="tongGia" ColumnName="tongGia" />
-          <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
           <ScalarProperty Name="ngayDatHang" ColumnName="ngayDatHang" />
           <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="HoaDons">
-      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.HoaDon">
-        <MappingFragment StoreEntitySet="HoaDon">
-          <ScalarProperty Name="ID_HoaDon" ColumnName="ID_HoaDon" />
-          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
-          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="tongGia" ColumnName="tongGia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -10,110 +10,116 @@ using quanlycybergams.Models;
 
 namespace quanlycybergams.Areas.Admin.Controllers
 {
-    public class MaysController : Controller
+    public class ChiTietDonHangsController : Controller
     {
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
-        // GET: Admin/Mays
+        // GET: Admin/ChiTietDonHangs
         public ActionResult Index()
         {
-            return View(db.Mays.ToList());
+            var chiTietDonHangs = db.ChiTietDonHangs.Include(c => c.DichVu).Include(c => c.DonHang);
+            return View(chiTietDonHangs.ToList());
         }
 
-        // GET: Admin/Mays/Details/5
+        // GET: Admin/ChiTietDonHangs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            May may = db.Mays.Find(id);
-            if (may == null)
+            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+            if (chiTietDonHang == null)
             {
                 return HttpNotFound();
             }
-            return View(may);
+            return View(chiTietDonHang);
         }
 
-        // GET: Admin/Mays/Create
+        // GET: Admin/ChiTietDonHangs/Create
         public ActionResult Create()
         {
+            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV");
+            ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_KhachHang");
             return View();
         }
 
-        // POST: Admin/Mays/Create
+        // POST: Admin/ChiTietDonHangs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien")] May may)
+        public ActionResult Create([Bind(Include = "MaDH,ID_DV,soluong,tongGia")] ChiTietDonHang chiTietDonHang)
         {
             if (ModelState.IsValid)
             {
-                TimeSpan thoiGianSuDung = (may.ThoiGianTat - may.ThoiGianMo) ?? TimeSpan.Zero;
-                decimal? tongTien = Convert.ToDecimal(thoiGianSuDung.TotalHours) * decimal.Parse(may.GiaMay);
-                may.TongTien = tongTien;
-                db.Mays.Add(may);
+                db.ChiTietDonHangs.Add(chiTietDonHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(may);
+            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", chiTietDonHang.ID_DV);
+            ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_KhachHang", chiTietDonHang.MaDH);
+            return View(chiTietDonHang);
         }
 
-        // GET: Admin/Mays/Edit/5
+        // GET: Admin/ChiTietDonHangs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            May may = db.Mays.Find(id);
-            if (may == null)
+            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+            if (chiTietDonHang == null)
             {
                 return HttpNotFound();
             }
-            return View(may);
+            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", chiTietDonHang.ID_DV);
+            ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_KhachHang", chiTietDonHang.MaDH);
+            return View(chiTietDonHang);
         }
 
-        // POST: Admin/Mays/Edit/5
+        // POST: Admin/ChiTietDonHangs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien")] May may)
+        public ActionResult Edit([Bind(Include = "MaDH,ID_DV,soluong,tongGia")] ChiTietDonHang chiTietDonHang)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(may).State = EntityState.Modified;
+                db.Entry(chiTietDonHang).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(may);
+            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", chiTietDonHang.ID_DV);
+            ViewBag.MaDH = new SelectList(db.DonHangs, "MaDH", "ID_KhachHang", chiTietDonHang.MaDH);
+            return View(chiTietDonHang);
         }
 
-        // GET: Admin/Mays/Delete/5
+        // GET: Admin/ChiTietDonHangs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            May may = db.Mays.Find(id);
-            if (may == null)
+            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+            if (chiTietDonHang == null)
             {
                 return HttpNotFound();
             }
-            return View(may);
+            return View(chiTietDonHang);
         }
 
-        // POST: Admin/Mays/Delete/5
+        // POST: Admin/ChiTietDonHangs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            May may = db.Mays.Find(id);
-            db.Mays.Remove(may);
+            ChiTietDonHang chiTietDonHang = db.ChiTietDonHangs.Find(id);
+            db.ChiTietDonHangs.Remove(chiTietDonHang);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

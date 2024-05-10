@@ -1,0 +1,52 @@
+﻿@model IEnumerable<quanlycybergams.Models.ChiTietDonHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tongGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DichVu.TenDV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonHang.ID_KhachHang)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tongGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DichVu.TenDV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonHang.ID_KhachHang)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

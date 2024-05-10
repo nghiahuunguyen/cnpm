@@ -17,7 +17,7 @@ namespace quanlycybergams.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DichVu()
         {
-            this.DonHangs = new HashSet<DonHang>();
+            this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
         }
     
         public string ID_DV { get; set; }
@@ -26,8 +26,8 @@ namespace quanlycybergams.Models
         public Nullable<decimal> GiaBan { get; set; }
         public string ID_Mathang { get; set; }
     
-        public virtual Kho Kho { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DonHang> DonHangs { get; set; }
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+        public virtual Kho Kho { get; set; }
     }
 }

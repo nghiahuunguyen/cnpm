@@ -18,7 +18,6 @@ namespace quanlycybergams.Models
         public TaiKhoan()
         {
             this.DonHangs = new HashSet<DonHang>();
-            this.HoaDons = new HashSet<HoaDon>();
         }
     
         public string ID_KhachHang { get; set; }
@@ -33,7 +32,5 @@ namespace quanlycybergams.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHangs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

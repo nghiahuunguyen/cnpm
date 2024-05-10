@@ -25,9 +25,10 @@ namespace quanlycybergams.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public virtual DbSet<DichVu> DichVus { get; set; }
+        public virtual DbSet<DonGia> DonGias { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
-        public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<Kho> Khoes { get; set; }
         public virtual DbSet<May> Mays { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoans { get; set; }

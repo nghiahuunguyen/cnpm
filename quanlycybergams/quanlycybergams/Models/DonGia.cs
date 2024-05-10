@@ -12,14 +12,9 @@ namespace quanlycybergams.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class HoaDon
+    public partial class DonGia
     {
-        public string ID_HoaDon { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
-        public string MaDH { get; set; }
-        public string ID_KhachHang { get; set; }
-    
-        public virtual DonHang DonHang { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public string ID_gia { get; set; }
+        public Nullable<decimal> GiaMay { get; set; }
     }
 }

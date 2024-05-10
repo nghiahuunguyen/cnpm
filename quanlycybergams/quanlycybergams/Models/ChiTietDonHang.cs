@@ -12,14 +12,14 @@ namespace quanlycybergams.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class May
+    public partial class ChiTietDonHang
     {
-        public string ID_May { get; set; }
-        public string TenMay { get; set; }
-        public string GiaMay { get; set; }
-        public bool? HoatDong { get; set; }
-        public Nullable<System.DateTime> ThoiGianMo { get; set; }
-        public Nullable<System.DateTime> ThoiGianTat { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public string MaDH { get; set; }
+        public string ID_DV { get; set; }
+        public string soluong { get; set; }
+        public Nullable<decimal> tongGia { get; set; }
+    
+        public virtual DichVu DichVu { get; set; }
+        public virtual DonHang DonHang { get; set; }
     }
 }
