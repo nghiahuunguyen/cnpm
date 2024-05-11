@@ -24,48 +24,22 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.MaDH, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.MaDH, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.MaDH, new { @class = "form-control", @rows = "5" })
                         @Html.ValidationMessageFor(model => model.MaDH, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.ID_KhachHang, htmlAttributes: new { @class = "control-label" })
                     @Html.DropDownListFor(model => model.ID_KhachHang, new SelectList((List<quanlycybergams.Models.TaiKhoan>)ViewBag.KH, "ID_KhachHang", "TenKhachHang"), "Chọn khách hàng", new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.ID_KhachHang, "", new { @class = "text-danger" })
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ID_DV, htmlAttributes: new { @class = "control-label" })
-                    @Html.DropDownListFor(model => model.ID_DV, new SelectList((List<quanlycybergams.Models.DichVu>)ViewBag.DichVu, "ID_DV", "TenDV"), "Chọn dịch vụ", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.ID_DV, "", new { @class = "text-danger" })
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.ghiChu, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.ghiChu, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.ghiChu, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.ngayDatHang, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.ngayDatHang, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.TextAreaFor(model => model.ngayDatHang, new { @class = "form-control", @rows = "5" })
                         @Html.ValidationMessageFor(model => model.ngayDatHang, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.tongGia, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.tongGia, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.tongGia, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
@@ -75,4 +49,5 @@
             </div>
         </div>
     </div>
+}
 }

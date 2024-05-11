@@ -12,12 +12,12 @@ namespace quanlycybergams.Areas.Admin.Controllers
 {
     public class DonHangsController : Controller
     {
-        private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
+        private QuanLyCYBERGAMESEntities1 db = new QuanLyCYBERGAMESEntities1();
 
         // GET: Admin/DonHangs
         public ActionResult Index()
         {
-            var donHangs = db.DonHangs.Include(d => d.DichVu).Include(d => d.TaiKhoan);
+            var donHangs = db.DonHangs.Include(d => d.TaiKhoan);
             return View(donHangs.ToList());
         }
 
@@ -39,11 +39,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // GET: Admin/DonHangs/Create
         public ActionResult Create()
         {
-            List<TaiKhoan> list = db.TaiKhoans.ToList();
-            ViewBag.KH = list;
-            List<DichVu> List = db.DichVus.ToList();
-            ViewBag.DichVu = List;
-            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV");
+            List<TaiKhoan> List = db.TaiKhoans.ToList();
+            ViewBag.KH = List;
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang");
             return View();
         }
@@ -53,7 +50,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaDH,ID_DV,tongGia,ghiChu,ngayDatHang,ID_KhachHang")] DonHang donHang)
+        public ActionResult Create([Bind(Include = "MaDH,ngayDatHang,ID_KhachHang,tongGia")] DonHang donHang)
         {
             if (ModelState.IsValid)
             {
@@ -61,11 +58,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<TaiKhoan> list = db.TaiKhoans.ToList();
-            ViewBag.KH = list;
-            List<DichVu> List = db.DichVus.ToList();
-            ViewBag.DichVu = List;
-            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
+            List<TaiKhoan> List = db.TaiKhoans.ToList();
+            ViewBag.KH = List;
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }
@@ -82,11 +76,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            List<TaiKhoan> list = db.TaiKhoans.ToList();
-            ViewBag.KH = list;
-            List<DichVu> List = db.DichVus.ToList();
-            ViewBag.DichVu = List;
-            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
+            List<TaiKhoan> List = db.TaiKhoans.ToList();
+            ViewBag.KH = List;
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }
@@ -96,7 +87,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaDH,ID_DV,tongGia,ghiChu,ngayDatHang,ID_KhachHang")] DonHang donHang)
+        public ActionResult Edit([Bind(Include = "MaDH,ngayDatHang,ID_KhachHang,tongGia")] DonHang donHang)
         {
             if (ModelState.IsValid)
             {
@@ -104,11 +95,8 @@ namespace quanlycybergams.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<TaiKhoan> list = db.TaiKhoans.ToList();
-            ViewBag.KH = list;
-            List<DichVu> List = db.DichVus.ToList();
-            ViewBag.DichVu = List;
-            ViewBag.ID_DV = new SelectList(db.DichVus, "ID_DV", "TenDV", donHang.ID_DV);
+            List<TaiKhoan> List = db.TaiKhoans.ToList();
+            ViewBag.KH = List;
             ViewBag.ID_KhachHang = new SelectList(db.TaiKhoans, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }

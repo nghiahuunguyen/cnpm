@@ -132,9 +132,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChiTietDonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVusController.cs" />
     <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
-    <Compile Include="Areas\Admin\Controllers\HoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\KhosController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaysController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoansController.cs" />
@@ -142,13 +142,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietDonHang.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DichVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DonHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HoaDon.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Kho.cs">
@@ -2623,20 +2623,10 @@
     <Content Include="Areas\Admin\Views\TaiKhoans\Details.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
     <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.eot" />
     <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.ttf" />
     <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff" />
     <Content Include="Public\admin\css\icons\tabler-icons\fonts\tabler-icons.woff2" />
-    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Khos\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Khos\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Khos\Details.cshtml" />
@@ -2647,6 +2637,16 @@
     <Content Include="Areas\Admin\Views\DichVus\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DichVus\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Index.cshtml" />
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2654,11 +2654,11 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\HoaDons\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\HoaDons\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

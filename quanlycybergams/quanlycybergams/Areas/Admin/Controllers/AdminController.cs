@@ -9,7 +9,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
+        private QuanLyCYBERGAMESEntities1 db = new QuanLyCYBERGAMESEntities1();
         // GET: Admin/Admin
         public ActionResult Index()
         {

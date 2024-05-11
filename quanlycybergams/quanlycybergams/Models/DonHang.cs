@@ -17,19 +17,16 @@ namespace quanlycybergams.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DonHang()
         {
-            this.HoaDons = new HashSet<HoaDon>();
+            this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
         }
     
         public string MaDH { get; set; }
-        public string ID_DV { get; set; }
-        public Nullable<decimal> tongGia { get; set; }
-        public string ghiChu { get; set; }
         public Nullable<System.DateTime> ngayDatHang { get; set; }
         public string ID_KhachHang { get; set; }
+        public Nullable<decimal> tongGia { get; set; }
     
-        public virtual DichVu DichVu { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }

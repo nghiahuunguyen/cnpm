@@ -12,7 +12,7 @@ namespace quanlycybergams.Areas.Admin.Controllers
 {
     public class DichVusController : Controller
     {
-        private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
+        private QuanLyCYBERGAMESEntities1 db = new QuanLyCYBERGAMESEntities1();
 
         // GET: Admin/DichVus
         public ActionResult Index()

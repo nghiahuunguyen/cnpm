@@ -9,7 +9,7 @@ namespace quanlycybergams.Controllers
 {
     public class TrangchuController : Controller
     {
-        private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
+        private QuanLyCYBERGAMESEntities1 db = new QuanLyCYBERGAMESEntities1();
 
         // GET: Trangchu
         public ActionResult Index()

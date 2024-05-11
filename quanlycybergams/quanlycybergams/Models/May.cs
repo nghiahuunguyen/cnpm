@@ -16,10 +16,10 @@ namespace quanlycybergams.Models
     {
         public string ID_May { get; set; }
         public string TenMay { get; set; }
-        public Nullable<decimal> GiaMay { get; set; }
-        public bool? HoatDong { get; set; }
-        public Nullable<System.TimeSpan> ThoiGianMo { get; set; }
-        public Nullable<System.TimeSpan> ThoiGianTat { get; set; }
+        public string GiaMay { get; set; }
+        public Nullable<bool> HoatDong { get; set; }
+        public Nullable<System.DateTime> ThoiGianMo { get; set; }
+        public Nullable<System.DateTime> ThoiGianTat { get; set; }
         public Nullable<decimal> TongTien { get; set; }
     }
 }
