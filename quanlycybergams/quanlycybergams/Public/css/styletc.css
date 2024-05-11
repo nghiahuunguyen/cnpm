@@ -1,0 +1,41 @@
+html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .bg-image {
+        background-image: url('Public/img/bg.png');
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .divider:after,
+    .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+    }
+
+    .h-custom {
+        height: calc(100% - 73px);
+    }
+
+    @media (max-width: 450px) {
+        .h-custom {
+            height: 100%;
+        }
+    }
+
+    .glass {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
