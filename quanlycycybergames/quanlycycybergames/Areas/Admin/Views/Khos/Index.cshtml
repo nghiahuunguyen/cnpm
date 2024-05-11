@@ -1,0 +1,77 @@
+﻿@model IEnumerable<quanlycycybergames.Models.Kho>
+
+@{
+    ViewBag.Title = "Kho";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">DANH SÁCH KHO</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Create", "Khos")" class="btn btn-success"><i class="fa fa-plus"> Tạo mới</i></a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_Mathang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenMatHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SoLuong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TinhTrang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NgayNhap)
+                            </th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.ID_Mathang)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TenMatHang)</td>
+                                <td>@Html.DisplayFor(modelItem => item.SoLuong)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TinhTrang)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NgayNhap)</td>
+                                <td class="border-bottom-0">
+                                    <a href="@Url.Action("Edit", "Khos", new { id = item.ID_Mathang })">
+                                        <button type="button" class="btn btn-success">
+                                            <i class="ti ti-edit"></i>
+                                        </button>
+                                    </a>
+
+                                    <a href="@Url.Action("Details", "Khos", new { id = item.ID_Mathang })">
+                                        <button type="button" class="btn btn-info">
+                                            <i class="ti ti-eye"></i>
+                                        </button>
+                                    </a>
+
+                                    <a href="@Url.Action("Delete", "Khos", new { id = item.ID_Mathang })">
+                                        <button type="button" class="btn btn-danger">
+                                            <i class="ti ti-trash"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
