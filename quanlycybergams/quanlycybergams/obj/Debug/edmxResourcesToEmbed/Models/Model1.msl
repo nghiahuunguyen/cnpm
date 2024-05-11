@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+<<<<<<< HEAD
   <EntityContainerMapping StorageEntityContainer="QuanLyCYBERGAMESModelStoreContainer" CdmEntityContainer="QuanLyCYBERGAMESEntities1">
+=======
+  <EntityContainerMapping StorageEntityContainer="QuanLyCYBERGAMESModelStoreContainer" CdmEntityContainer="QuanLyCYBERGAMESEntities">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <EntitySetMapping Name="ChiTietDonHangs">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.ChiTietDonHang">
         <MappingFragment StoreEntitySet="ChiTietDonHang">
@@ -19,6 +23,14 @@
           <ScalarProperty Name="AnhSP" ColumnName="AnhSP" />
           <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
           <ScalarProperty Name="ID_Mathang" ColumnName="ID_Mathang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonGias">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonGia">
+        <MappingFragment StoreEntitySet="DonGia">
+          <ScalarProperty Name="ID_gia" ColumnName="ID_gia" />
+          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

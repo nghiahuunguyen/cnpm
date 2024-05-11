@@ -20,6 +20,13 @@
     <Property Name="GiaBan" Type="money" />
     <Property Name="ID_Mathang" Type="varchar" MaxLength="10" />
   </EntityType>
+  <EntityType Name="DonGia">
+    <Key>
+      <PropertyRef Name="ID_gia" />
+    </Key>
+    <Property Name="ID_gia" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="GiaMay" Type="money" />
+  </EntityType>
   <EntityType Name="DonHang">
     <Key>
       <PropertyRef Name="MaDH" />
@@ -65,7 +72,11 @@
     <Property Name="Matkhau" Type="varchar" MaxLength="20" />
     <Property Name="GiaMay" Type="money" />
   </EntityType>
+<<<<<<< HEAD
   <Association Name="FK__ChiTietDo__ID_DV__300424B4">
+=======
+  <Association Name="FK__ChiTietDo__ID_DV__31EC6D26">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
     <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -77,7 +88,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <Association Name="FK__ChiTietDon__MaDH__30F848ED">
+=======
+  <Association Name="FK__ChiTietDon__MaDH__32E0915F">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
     <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -89,7 +104,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <Association Name="FK__DichVu__ID_Matha__2A4B4B5E">
+=======
+  <Association Name="FK__DichVu__ID_Matha__2C3393D0">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <End Role="Kho" Type="Self.Kho" Multiplicity="0..1" />
     <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,7 +120,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+<<<<<<< HEAD
   <Association Name="FK__DonHang__ID_Khac__2D27B809">
+=======
+  <Association Name="FK__DonHang__ID_Khac__2F10007B">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -116,10 +139,12 @@
   <EntityContainer Name="QuanLyCYBERGAMESModelStoreContainer">
     <EntitySet Name="ChiTietDonHang" EntityType="Self.ChiTietDonHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DonGia" EntityType="Self.DonGia" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kho" EntityType="Self.Kho" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="May" EntityType="Self.May" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+<<<<<<< HEAD
     <AssociationSet Name="FK__ChiTietDo__ID_DV__300424B4" Association="Self.FK__ChiTietDo__ID_DV__300424B4">
       <End Role="DichVu" EntitySet="DichVu" />
       <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
@@ -133,6 +158,21 @@
       <End Role="DichVu" EntitySet="DichVu" />
     </AssociationSet>
     <AssociationSet Name="FK__DonHang__ID_Khac__2D27B809" Association="Self.FK__DonHang__ID_Khac__2D27B809">
+=======
+    <AssociationSet Name="FK__ChiTietDo__ID_DV__31EC6D26" Association="Self.FK__ChiTietDo__ID_DV__31EC6D26">
+      <End Role="DichVu" EntitySet="DichVu" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietDon__MaDH__32E0915F" Association="Self.FK__ChiTietDon__MaDH__32E0915F">
+      <End Role="DonHang" EntitySet="DonHang" />
+      <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DichVu__ID_Matha__2C3393D0" Association="Self.FK__DichVu__ID_Matha__2C3393D0">
+      <End Role="Kho" EntitySet="Kho" />
+      <End Role="DichVu" EntitySet="DichVu" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DonHang__ID_Khac__2F10007B" Association="Self.FK__DonHang__ID_Khac__2F10007B">
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
       <End Role="DonHang" EntitySet="DonHang" />
     </AssociationSet>

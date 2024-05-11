@@ -12,18 +12,9 @@ namespace quanlycybergams.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class May
+    public partial class DonGia
     {
-        public string ID_May { get; set; }
-        public string TenMay { get; set; }
-        public string GiaMay { get; set; }
-<<<<<<< HEAD
-        public Nullable<bool> HoatDong { get; set; }
-=======
-        public bool? HoatDong { get; set; }
->>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
-        public Nullable<System.DateTime> ThoiGianMo { get; set; }
-        public Nullable<System.DateTime> ThoiGianTat { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public string ID_gia { get; set; }
+        public Nullable<decimal> GiaMay { get; set; }
     }
 }

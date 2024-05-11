@@ -134,7 +134,10 @@
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChiTietDonHangsController.cs" />
     <Compile Include="Areas\Admin\Controllers\DichVusController.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\Controllers\DonHangsController.cs" />
+=======
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <Compile Include="Areas\Admin\Controllers\KhosController.cs" />
     <Compile Include="Areas\Admin\Controllers\MaysController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoansController.cs" />
@@ -148,9 +151,15 @@
     <Compile Include="Models\DichVu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DonGia.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+=======
     <Compile Include="Models\DonHang.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <Compile Include="Models\Kho.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -2642,11 +2651,14 @@
     <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\ChiTietDonHangs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChiTietDonHangs\Index.cshtml" />
+=======
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -2654,11 +2666,19 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\DonHangs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangs\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DonHangs\Index.cshtml" />
+=======
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ChiTietDonHangs\Index.cshtml" />
+>>>>>>> 58896a978fbc5910d88e4176419133ab5d25ef10
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
