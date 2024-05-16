@@ -24,7 +24,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                 taiKhoans = taiKhoans.Where(t => t.TenKhachHang.Contains(searchName)).ToList();
             }
 
-            return View(db.TaiKhoan.ToList());
+            return View(taiKhoans);
         }
 
         // GET: Admin/TaiKhoans/Details/5

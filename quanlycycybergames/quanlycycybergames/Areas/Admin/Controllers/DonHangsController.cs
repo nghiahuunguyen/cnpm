@@ -15,13 +15,21 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/DonHangs
-        public ActionResult Index()
+        // GET: Admin/DonHangs
+        public ActionResult Index(string searchName)
         {
             var donHangs = db.DonHang.Include(d => d.TaiKhoan);
+
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                donHangs = donHangs.Where(d => d.TaiKhoan.TenKhachHang.Contains(searchName));
+            }
+
             foreach (var donHang in donHangs)
             {
                 donHang.tongGia = db.ChiTietDonHang.Where(c => c.MaDH == donHang.MaDH).Sum(c => c.tongGia);
             }
+
             return View(donHangs.ToList());
         }
 

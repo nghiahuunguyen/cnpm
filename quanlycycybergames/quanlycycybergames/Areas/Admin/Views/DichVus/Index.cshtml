@@ -15,6 +15,13 @@
             <div class="my-3">
                 <h1 class="fw-bolder text-center">DANH SÁCH DỊCH VỤ</h1>
             </div>
+            @using (Html.BeginForm("Index", "DichVus", FormMethod.Get, new { @class = "input-group Th d-flex justify-content-center" }))
+            {
+                <div class="input-group mb-3 w-50 m-auto">
+                    <input type="text" class="form-control" name="searchName" placeholder="Nhập tên dịch vụ" aria-label="Nhập tên dịch vụ" aria-describedby="button-addon2">
+                    <button class="btn btn-secondary" type="submit" id="button-addon2">Tìm kiếm</button>
+                </div>
+            }
             <div class="col-md-6 text-right">
                 <a href="@Url.Action("Create", "DichVus")" class="btn btn-success"><i class="fa fa-plus"> Tạo mới</i></a>
             </div>

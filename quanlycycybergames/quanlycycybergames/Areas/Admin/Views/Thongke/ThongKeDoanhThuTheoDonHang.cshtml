@@ -1,5 +1,5 @@
 ﻿@{
-    var thongKeList = ViewBag.ThongKeList as List<quanlycycybergames.Models.ThongKeTongHop>;
+    var thongKeList = ViewBag.ThongKeList as List<quanlycycybergames.Models.ThongKeDoanhThu>;
     var dates = new List<string>();
     var totals = new List<decimal>();
 
@@ -17,7 +17,7 @@
                 cumulativeSum = 0;
             }
 
-            cumulativeSum += item.TongDoanhThuDonHang + item.TongSoTienNap;
+            cumulativeSum += item.TongDoanhThu;
             dates.Add(currentDate.ToString("dd-MM-yyyy"));
             totals.Add(cumulativeSum);
 
@@ -40,11 +40,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="my-3 text-center">
-                    <h1 class="fw-bolder">THỐNG KÊ</h1>
+                    <h1 class="fw-bolder">THỐNG KÊ THEO ĐƠN HÀNG</h1>
                 </div>
                 <select class="form-select" style="width: 200px; font-size: 14px;" onchange="navigateToOption(this)">
-                    <option value="1">Thống kê</option>
-                    <option value="2">Thống kê theo đơn hàng</option>
+                    <option value="1">Thống kê theo đơn hàng</option>
+                    <option value="2">Thống kê </option>
                     <option value="3">Thống kê theo số tiền nạp</option>
                 </select>
 
@@ -55,9 +55,9 @@
                         var link;
 
                         if (value === "1") {
-                            link = "/Thongke/Index";
-                        } else if (value === "2") {
                             link = "/Admin/Thongke/ThongKeDoanhThuTheoDonHang";
+                        } else if (value === "2") {
+                            link = "/Admin/Thongke/";
                         } else if (value === "3") {
                             link = "/Admin/Thongke/ThongKeSoTienNap";
                         }

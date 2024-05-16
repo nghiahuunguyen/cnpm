@@ -15,10 +15,12 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/Khos
+        // GET: Admin/Khos
         public ActionResult Index()
         {
             return View(db.Kho.ToList());
         }
+
 
         // GET: Admin/Khos/Details/5
         public ActionResult Details(string id)

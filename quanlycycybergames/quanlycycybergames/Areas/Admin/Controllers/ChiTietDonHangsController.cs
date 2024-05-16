@@ -53,17 +53,45 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MaDH,ID_DV,soluong,tongGia")] ChiTietDonHang chiTietDonHang)
         {
-            DichVu dichVu = db.DichVu.Find(chiTietDonHang.ID_DV);
-            if (dichVu != null && decimal.TryParse(chiTietDonHang.soluong, out decimal soluong))
+            if (ModelState.IsValid)
             {
-                if (dichVu.GiaBan.HasValue)
+                DichVu dichVu = db.DichVu.Find(chiTietDonHang.ID_DV);
+                if (dichVu != null && decimal.TryParse(chiTietDonHang.soluong, out decimal soluong))
                 {
-                    chiTietDonHang.tongGia = dichVu.GiaBan.Value * soluong;
-                    db.ChiTietDonHang.Add(chiTietDonHang);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    if (dichVu.GiaBan.HasValue)
+                    {
+                        chiTietDonHang.tongGia = dichVu.GiaBan.Value * soluong;
+
+                        // Kiểm tra số lượng trong kho
+                        Kho kho = db.Kho.FirstOrDefault(k => k.ID_Mathang == dichVu.ID_Mathang);
+                        if (kho != null)
+                        {
+                            decimal soLuongKho;
+                            if (decimal.TryParse(kho.SoLuong, out soLuongKho))
+                            {
+                                if (soluong <= soLuongKho)
+                                {
+                                    // Số lượng trong kho đủ, tiến hành tạo ChiTietDonHang và trừ số lượng trong kho
+                                    db.ChiTietDonHang.Add(chiTietDonHang);
+                                    db.SaveChanges();
+
+                                    soLuongKho -= soluong;
+                                    kho.SoLuong = soLuongKho.ToString();
+                                    db.SaveChanges();
+
+                                    return RedirectToAction("Index");
+                                }
+                                else
+                                {
+                                    // Số lượng trong kho không đủ, gửi thông báo cho người dùng
+                                    ModelState.AddModelError("", "Số lượng trong kho không đủ.");
+                                }
+                            }
+                        }
+                    }
                 }
             }
+
             List<DichVu> List = db.DichVu.ToList();
             ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVu, "ID_DV", "TenDV", chiTietDonHang.ID_DV);
@@ -99,16 +127,32 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                
                 DichVu dichVu = db.DichVu.Find(chiTietDonHang.ID_DV);
-                if (dichVu != null && decimal.TryParse(chiTietDonHang.soluong, out decimal soluong))
+                if (dichVu != null)
                 {
-                    if (dichVu.GiaBan.HasValue)
+                    decimal soluongTru;
+                    if (decimal.TryParse(chiTietDonHang.soluong, out soluongTru))
                     {
-                        chiTietDonHang.tongGia = dichVu.GiaBan.Value * soluong;
-                        db.Entry(chiTietDonHang).State = EntityState.Modified;
-                        db.SaveChanges();
-                        return RedirectToAction("Index");
+                        if (dichVu.GiaBan.HasValue)
+                        {
+                            chiTietDonHang.tongGia = dichVu.GiaBan.Value * soluongTru;
+
+                            // Trừ số lượng trong kho
+                            Kho kho = db.Kho.FirstOrDefault(k => k.ID_Mathang == dichVu.ID_Mathang);
+                            if (kho != null)
+                            {
+                                decimal soLuongKho;
+                                if (decimal.TryParse(kho.SoLuong, out soLuongKho))
+                                {
+                                    soLuongKho -= soluongTru;
+                                    kho.SoLuong = soLuongKho.ToString();
+                                }
+                            }
+
+                            db.Entry(chiTietDonHang).State = EntityState.Modified;
+                            db.SaveChanges();
+                            return RedirectToAction("Index");
+                        }
                     }
                 }
             }

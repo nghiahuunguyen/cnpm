@@ -88,7 +88,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                 TimeSpan thoiGianSuDung = (may.ThoiGianTat - may.ThoiGianMo) ?? TimeSpan.Zero;
                 decimal? tongTien = Convert.ToDecimal(thoiGianSuDung.TotalHours) * decimal.Parse(may.GiaMay);
                 may.TongTien = tongTien;
-                db.May.Add(may);
+                db.Entry(may).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -15,9 +15,13 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/DichVus
-        public ActionResult Index()
+        public ActionResult Index(String searchName)
         {
             var dichVu = db.DichVu.Include(d => d.Kho);
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                dichVu= dichVu.Where(t => t.TenDV.Contains(searchName));
+            }
             return View(dichVu.ToList());
         }
 
