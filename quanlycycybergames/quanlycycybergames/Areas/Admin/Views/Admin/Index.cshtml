@@ -28,24 +28,40 @@
                                 <img src="~/Public/admin/pc/off.jfif" class="card-img-top" alt="...">
                             }
 
-                            <div class="m-3 text-center">
-                                <h5 class="card-title">
-                                    @may.TenMay
-                                    "@if (may.HoatDong.HasValue && may.HoatDong.Value)
-                                    {
-                                        <span class="text-success">Hoạt động</span>
-                                    }
-                                    else if (may.HoatDong.HasValue && !may.HoatDong.Value)
-                                    {
-                                        <span class="text-danger">Hư máy</span>
-                                    }
-                                    else
-                                    {
-                                        <span class="text-muted">Không hoạt động</span>
-                                    }"
-                                </h5>
-                                
-                            </div>
+                        <div class="m-3 text-center">
+                            <h5 class="card-title">
+                                @may.TenMay
+                                "@if (may.HoatDong.HasValue && may.HoatDong.Value)
+                                {
+                                    <span class="text-success">Hoạt động</span>
+                                }
+                                else if (may.HoatDong.HasValue && !may.HoatDong.Value)
+                                {
+                                    <span class="text-danger">Hư máy</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Không hoạt động</span>
+                                }"
+
+                            </h5>
+                            <h5 class="card-title">
+                               
+                                @if (may.HoatDong.HasValue && may.HoatDong.Value)
+                                {
+                                    <h5 class="card-title" style="color: black;">Tài khoản đăng nhập</h5>
+                                    <h5 class="text-success">"@may.TaiKhoan.TenDN"</h5>
+                                }
+                            </h5>
+
+                            <h5 class="card-title">
+                                @if (may.HoatDong.HasValue && may.HoatDong.Value)
+                                {
+                                    <h5 class="card-title" style="color: black;">Thời gian bắt đầu</h5>
+                                    <span class="text-success">"@may.ThoiGianMo"</span>
+                                }
+                            </h5>
+                        </div>
                         </div>
                     </div>
                 }

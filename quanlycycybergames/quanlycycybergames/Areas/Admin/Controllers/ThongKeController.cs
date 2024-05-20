@@ -38,7 +38,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
 
                     decimal? tongSoTienNap = dbContext.TaiKhoan
                         .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap) == ThoiGianGiaNhap)
-                        .Sum(nt => nt.GiaMay);
+                        .Sum(nt => nt.SoTienNap);
 
                     decimal tongDoanhThuDonHangNgay = tongDoanhThuDonHang ?? 0;
                     decimal tongSoTienNapNgay = tongSoTienNap ?? 0;
@@ -121,7 +121,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                     // Tính tổng số tiền nạp cho mỗi ngày
                     decimal? tongSoTienNap = dbContext.TaiKhoan
                         .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap) == ngayNap)
-                        .Sum(nt => nt.GiaMay);
+                        .Sum(nt => nt.SoTienNap);
 
                     // Gán giá trị cho tongSoTienNap
                     decimal tongSoTienNapNgay = tongSoTienNap ?? 0;

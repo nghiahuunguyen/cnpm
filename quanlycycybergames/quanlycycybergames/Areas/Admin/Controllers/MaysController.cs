@@ -17,7 +17,8 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // GET: Admin/Mays
         public ActionResult Index()
         {
-            return View(db.May.ToList());
+            var may = db.May.Include(m => m.TaiKhoan);
+            return View(may.ToList());
         }
 
         // GET: Admin/Mays/Details/5
@@ -38,6 +39,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // GET: Admin/Mays/Create
         public ActionResult Create()
         {
+            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang");
             return View();
         }
 
@@ -46,18 +50,27 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien")] May may)
+        public ActionResult Create([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien,ID_KhachHang")] May may)
         {
             if (ModelState.IsValid)
             {
                 TimeSpan thoiGianSuDung = (may.ThoiGianTat - may.ThoiGianMo) ?? TimeSpan.Zero;
                 decimal? tongTien = Convert.ToDecimal(thoiGianSuDung.TotalHours) * decimal.Parse(may.GiaMay);
                 may.TongTien = tongTien;
+                TaiKhoan taiKhoan = db.TaiKhoan.Find(may.ID_KhachHang);
+                if (taiKhoan != null)
+                {
+                    // Subtract the TongTien from the account balance
+                    taiKhoan.SoTienNap -= tongTien;
+                    db.Entry(taiKhoan).State = EntityState.Modified;
+                }
                 db.May.Add(may);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", may.ID_KhachHang);
             return View(may);
         }
 
@@ -73,6 +86,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", may.ID_KhachHang);
             return View(may);
         }
 
@@ -81,17 +97,28 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien")] May may)
+        public ActionResult Edit([Bind(Include = "ID_May,TenMay,GiaMay,HoatDong,ThoiGianMo,ThoiGianTat,TongTien,ID_KhachHang")] May may)
         {
             if (ModelState.IsValid)
             {
                 TimeSpan thoiGianSuDung = (may.ThoiGianTat - may.ThoiGianMo) ?? TimeSpan.Zero;
                 decimal? tongTien = Convert.ToDecimal(thoiGianSuDung.TotalHours) * decimal.Parse(may.GiaMay);
                 may.TongTien = tongTien;
+                TaiKhoan taiKhoan = db.TaiKhoan.Find(may.ID_KhachHang);
+                if (taiKhoan != null)
+                {
+                    // Subtract the TongTien from the account balance
+                    taiKhoan.SoTienNap -= tongTien;
+                    db.Entry(taiKhoan).State = EntityState.Modified;
+                }
+
                 db.Entry(may).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", may.ID_KhachHang);
             return View(may);
         }
 

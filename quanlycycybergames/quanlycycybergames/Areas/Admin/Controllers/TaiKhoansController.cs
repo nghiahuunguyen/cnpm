@@ -15,13 +15,15 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/TaiKhoans
-        public ActionResult Index(string searchName)
+        public ActionResult Index(string searchString)
         {
             var taiKhoans = db.TaiKhoan.ToList();
 
-            if (!string.IsNullOrEmpty(searchName))
+            if (!string.IsNullOrEmpty(searchString))
             {
-                taiKhoans = taiKhoans.Where(t => t.TenKhachHang.Contains(searchName)).ToList();
+                taiKhoans = taiKhoans.Where(t => t.TenKhachHang.Equals(searchString, StringComparison.OrdinalIgnoreCase) ||
+                                                 t.TenDN.Equals(searchString, StringComparison.OrdinalIgnoreCase) ||
+                                                 t.SDT.Equals(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             return View(taiKhoans);
@@ -53,10 +55,15 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,GiaMay")] TaiKhoan taiKhoan)
+        public ActionResult Create([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,SoTienNap")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {
+                if (db.TaiKhoan.Any(t => t.TenDN.Equals(taiKhoan.TenDN, StringComparison.OrdinalIgnoreCase)))
+                {
+                    ModelState.AddModelError("TenDN", "Tên này đã có người dùng.");
+                    return View(taiKhoan);
+                }
                 db.TaiKhoan.Add(taiKhoan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,7 +92,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,GiaMay")] TaiKhoan taiKhoan)
+        public ActionResult Edit([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,SoTienNap")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {

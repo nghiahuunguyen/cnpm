@@ -69,6 +69,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                             decimal soLuongKho;
                             if (decimal.TryParse(kho.SoLuong, out soLuongKho))
                             {
+                                
                                 if (soluong <= soLuongKho)
                                 {
                                     // Số lượng trong kho đủ, tiến hành tạo ChiTietDonHang và trừ số lượng trong kho
@@ -127,41 +128,59 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existingChiTietDonHang = db.ChiTietDonHang.Find(chiTietDonHang.MaDH, chiTietDonHang.ID_DV);
+                if (existingChiTietDonHang == null)
+                {
+                    return HttpNotFound();
+                }
+
                 DichVu dichVu = db.DichVu.Find(chiTietDonHang.ID_DV);
                 if (dichVu != null)
                 {
-                    decimal soluongTru;
-                    if (decimal.TryParse(chiTietDonHang.soluong, out soluongTru))
+                    decimal newSoluong;
+                    if (decimal.TryParse(chiTietDonHang.soluong, out newSoluong))
                     {
                         if (dichVu.GiaBan.HasValue)
                         {
-                            chiTietDonHang.tongGia = dichVu.GiaBan.Value * soluongTru;
+                            // Calculate the new total price
+                            existingChiTietDonHang.tongGia = dichVu.GiaBan.Value * newSoluong;
 
-                            // Trừ số lượng trong kho
+                            // Adjust the stock
                             Kho kho = db.Kho.FirstOrDefault(k => k.ID_Mathang == dichVu.ID_Mathang);
                             if (kho != null)
                             {
-                                decimal soLuongKho;
-                                if (decimal.TryParse(kho.SoLuong, out soLuongKho))
+                                decimal oldSoluong;
+                                if (decimal.TryParse(existingChiTietDonHang.soluong, out oldSoluong))
                                 {
-                                    soLuongKho -= soluongTru;
-                                    kho.SoLuong = soLuongKho.ToString();
+                                    decimal soLuongKho;
+                                    if (decimal.TryParse(kho.SoLuong, out soLuongKho))
+                                    {
+                                        // Adjust the stock based on the difference between old and new quantity
+                                        soLuongKho = soLuongKho + oldSoluong - newSoluong;
+                                        kho.SoLuong = soLuongKho.ToString();
+                                    }
                                 }
                             }
 
-                            db.Entry(chiTietDonHang).State = EntityState.Modified;
+                            // Update the existing entity's quantity
+                            existingChiTietDonHang.soluong = newSoluong.ToString();
+
+                            // Mark the existing entity as modified
+                            db.Entry(existingChiTietDonHang).State = EntityState.Modified;
                             db.SaveChanges();
                             return RedirectToAction("Index");
                         }
                     }
                 }
             }
+
             List<DichVu> List = db.DichVu.ToList();
             ViewBag.DichVu = List;
             ViewBag.ID_DV = new SelectList(db.DichVu, "ID_DV", "TenDV", chiTietDonHang.ID_DV);
             ViewBag.MaDH = new SelectList(db.DonHang, "MaDH", "ID_KhachHang", chiTietDonHang.MaDH);
             return View(chiTietDonHang);
         }
+
 
         // GET: Admin/ChiTietDonHangs/Delete/5
         public ActionResult Delete(string id)

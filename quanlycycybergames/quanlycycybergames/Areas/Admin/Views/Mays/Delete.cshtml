@@ -40,6 +40,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.TongTien)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenDN)
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,6 +75,9 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(model => model.TongTien)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenDN)
                             </td>
                             <td>
                                 @using (Html.BeginForm())

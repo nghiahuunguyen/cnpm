@@ -53,6 +53,7 @@
           <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
           <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -66,7 +67,7 @@
           <ScalarProperty Name="ThoiGianGiaNhap" ColumnName="ThoiGianGiaNhap" />
           <ScalarProperty Name="TenDN" ColumnName="TenDN" />
           <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
-          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
+          <ScalarProperty Name="SoTienNap" ColumnName="SoTienNap" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

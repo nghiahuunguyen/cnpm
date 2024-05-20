@@ -1,4 +1,4 @@
-﻿@model quanlycycybergames.Models.May
+﻿﻿@model quanlycycybergames.Models.May
 
 @{
     ViewBag.Title = "Chi tiết Máy";
@@ -41,6 +41,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.TongTien)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenDN)
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,7 +77,10 @@
                             <td>
                                 @Html.DisplayFor(model => model.TongTien)
                             </td>
-                    </tbody>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenDN)
+                            </td>
+</tbody>
                 </table>
             </div>
         </div>

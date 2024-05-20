@@ -36,7 +36,7 @@ namespace quanlycycybergames.Controllers
             }
             else
             {
-                ViewBag.ErrorMessage = "Invalid username or password";
+                ViewBag.ErrorMessage = "Sai tên đăng nhập hoặc tên mật khẩu";
                 return View();
             }
         }

@@ -15,15 +15,20 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/DichVus
-        public ActionResult Index(String searchName)
+        public ActionResult Index(string searchName)
         {
             var dichVu = db.DichVu.Include(d => d.Kho);
             if (!string.IsNullOrEmpty(searchName))
             {
-                dichVu= dichVu.Where(t => t.TenDV.Contains(searchName));
+                dichVu = dichVu.Where(t => t.TenDV.Contains(searchName));
             }
+
+            bool noResults = !dichVu.Any();
+            ViewBag.NoResults = noResults;
+
             return View(dichVu.ToList());
         }
+
 
         // GET: Admin/DichVus/Details/5
         public ActionResult Details(string id)

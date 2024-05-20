@@ -43,6 +43,9 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.TongTien)
                             </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenDN)
+                            </th>
                             <th>Chức năng</th>
                         </tr>
                     </thead>
@@ -71,6 +74,7 @@
                                 <td>@Html.DisplayFor(modelItem => item.ThoiGianMo)</td>
                                 <td>@Html.DisplayFor(modelItem => item.ThoiGianTat)</td>
                                 <td>@Html.DisplayFor(modelItem => item.TongTien)</td>
+                                <td>@Html.DisplayFor(modelItem => item.TaiKhoan.TenDN)</td>
                                 <td class="border-bottom-0">
                                     <a href="@Url.Action("Edit", "Mays", new { id = item.ID_May })">
                                         <button type="button" class="btn btn-success">

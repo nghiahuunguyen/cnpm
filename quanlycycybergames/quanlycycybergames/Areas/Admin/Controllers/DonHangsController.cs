@@ -32,7 +32,6 @@ namespace quanlycycybergames.Areas.Admin.Controllers
 
             return View(donHangs.ToList());
         }
-
         // GET: Admin/DonHangs/Details/5
         public ActionResult Details(string id)
         {

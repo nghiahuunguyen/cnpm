@@ -38,7 +38,10 @@
 
                             </div>
 
-
+                            @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                            {
+                                <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+                            }
                             <div class="text-center text-lg-start mt-4 pt-2">
                                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg mt-2 position-relative start-50 translate-middle px-4"
                                         style="text-align: center; ">

@@ -18,6 +18,7 @@ namespace quanlycycybergames.Models
         public TaiKhoan()
         {
             this.DonHang = new HashSet<DonHang>();
+            this.May = new HashSet<May>();
         }
     
         public string ID_KhachHang { get; set; }
@@ -27,9 +28,11 @@ namespace quanlycycybergames.Models
         public Nullable<System.DateTime> ThoiGianGiaNhap { get; set; }
         public string TenDN { get; set; }
         public string Matkhau { get; set; }
-        public Nullable<decimal> GiaMay { get; set; }
+        public Nullable<decimal> SoTienNap { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DonHang> DonHang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<May> May { get; set; }
     }
 }

@@ -21,5 +21,8 @@ namespace quanlycycybergames.Models
         public Nullable<System.DateTime> ThoiGianMo { get; set; }
         public Nullable<System.DateTime> ThoiGianTat { get; set; }
         public Nullable<decimal> TongTien { get; set; }
+        public string ID_KhachHang { get; set; }
+    
+        public virtual TaiKhoan TaiKhoan { get; set; }
     }
 }
