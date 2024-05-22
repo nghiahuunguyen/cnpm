@@ -28,6 +28,7 @@ namespace quanlycycybergames.Models
         public virtual DbSet<ChiTietDonHang> ChiTietDonHang { get; set; }
         public virtual DbSet<DichVu> DichVu { get; set; }
         public virtual DbSet<DonHang> DonHang { get; set; }
+        public virtual DbSet<KhachHang> KhachHang { get; set; }
         public virtual DbSet<Kho> Kho { get; set; }
         public virtual DbSet<May> May { get; set; }
         public virtual DbSet<TaiKhoan> TaiKhoan { get; set; }

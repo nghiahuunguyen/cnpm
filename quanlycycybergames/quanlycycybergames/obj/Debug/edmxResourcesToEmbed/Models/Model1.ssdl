@@ -29,6 +29,15 @@
     <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" />
     <Property Name="tongGia" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="ID_KhachHang" />
+    </Key>
+    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="30" />
+    <Property Name="SDT" Type="varchar" MaxLength="10" />
+    <Property Name="GioiTinh" Type="bit" />
+  </EntityType>
   <EntityType Name="Kho">
     <Key>
       <PropertyRef Name="ID_Mathang" />
@@ -50,22 +59,20 @@
     <Property Name="ThoiGianMo" Type="datetime" />
     <Property Name="ThoiGianTat" Type="datetime" />
     <Property Name="TongTien" Type="money" />
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" />
+    <Property Name="ID_TaiKhoan" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="TaiKhoan">
     <Key>
-      <PropertyRef Name="ID_KhachHang" />
+      <PropertyRef Name="ID_TaiKhoan" />
     </Key>
-    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenKhachHang" Type="nvarchar" MaxLength="30" />
-    <Property Name="SDT" Type="varchar" MaxLength="10" />
-    <Property Name="GioiTinh" Type="bit" />
-    <Property Name="ThoiGianGiaNhap" Type="datetime" />
-    <Property Name="TenDN" Type="nvarchar" MaxLength="20" />
+    <Property Name="ID_TaiKhoan" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="20" />
     <Property Name="Matkhau" Type="varchar" MaxLength="20" />
+    <Property Name="ThoiGianNap" Type="datetime" />
     <Property Name="SoTienNap" Type="money" />
+    <Property Name="ID_KhachHang" Type="varchar" MaxLength="10" />
   </EntityType>
-  <Association Name="FK__ChiTietDo__ID_DV__30F848ED">
+  <Association Name="FK__ChiTietDo__ID_DV__33D4B598">
     <End Role="DichVu" Type="Self.DichVu" Multiplicity="1" />
     <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -77,7 +84,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__ChiTietDon__MaDH__31EC6D26">
+  <Association Name="FK__ChiTietDon__MaDH__34C8D9D1">
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="1" />
     <End Role="ChiTietDonHang" Type="Self.ChiTietDonHang" Multiplicity="*" />
     <ReferentialConstraint>
@@ -89,7 +96,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DichVu__ID_Matha__2B3F6F97">
+  <Association Name="FK__DichVu__ID_Matha__2E1BDC42">
     <End Role="Kho" Type="Self.Kho" Multiplicity="0..1" />
     <End Role="DichVu" Type="Self.DichVu" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,11 +108,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DonHang__ID_Khac__2E1BDC42">
-    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
+  <Association Name="FK__DonHang__ID_Khac__30F848ED">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
     <End Role="DonHang" Type="Self.DonHang" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="TaiKhoan">
+      <Principal Role="KhachHang">
         <PropertyRef Name="ID_KhachHang" />
       </Principal>
       <Dependent Role="DonHang">
@@ -113,14 +120,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__May__ID_KhachHan__267ABA7A">
+  <Association Name="FK__May__ID_TaiKhoan__29572725">
     <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="0..1" />
     <End Role="May" Type="Self.May" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TaiKhoan">
-        <PropertyRef Name="ID_KhachHang" />
+        <PropertyRef Name="ID_TaiKhoan" />
       </Principal>
       <Dependent Role="May">
+        <PropertyRef Name="ID_TaiKhoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TaiKhoan__ID_Kha__267ABA7A">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="ID_KhachHang" />
+      </Principal>
+      <Dependent Role="TaiKhoan">
         <PropertyRef Name="ID_KhachHang" />
       </Dependent>
     </ReferentialConstraint>
@@ -129,28 +148,33 @@
     <EntitySet Name="ChiTietDonHang" EntityType="Self.ChiTietDonHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DonHang" EntityType="Self.DonHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kho" EntityType="Self.Kho" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="May" EntityType="Self.May" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ChiTietDo__ID_DV__30F848ED" Association="Self.FK__ChiTietDo__ID_DV__30F848ED">
+    <AssociationSet Name="FK__ChiTietDo__ID_DV__33D4B598" Association="Self.FK__ChiTietDo__ID_DV__33D4B598">
       <End Role="DichVu" EntitySet="DichVu" />
       <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChiTietDon__MaDH__31EC6D26" Association="Self.FK__ChiTietDon__MaDH__31EC6D26">
+    <AssociationSet Name="FK__ChiTietDon__MaDH__34C8D9D1" Association="Self.FK__ChiTietDon__MaDH__34C8D9D1">
       <End Role="DonHang" EntitySet="DonHang" />
       <End Role="ChiTietDonHang" EntitySet="ChiTietDonHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__DichVu__ID_Matha__2B3F6F97" Association="Self.FK__DichVu__ID_Matha__2B3F6F97">
+    <AssociationSet Name="FK__DichVu__ID_Matha__2E1BDC42" Association="Self.FK__DichVu__ID_Matha__2E1BDC42">
       <End Role="Kho" EntitySet="Kho" />
       <End Role="DichVu" EntitySet="DichVu" />
     </AssociationSet>
-    <AssociationSet Name="FK__DonHang__ID_Khac__2E1BDC42" Association="Self.FK__DonHang__ID_Khac__2E1BDC42">
-      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
+    <AssociationSet Name="FK__DonHang__ID_Khac__30F848ED" Association="Self.FK__DonHang__ID_Khac__30F848ED">
+      <End Role="KhachHang" EntitySet="KhachHang" />
       <End Role="DonHang" EntitySet="DonHang" />
     </AssociationSet>
-    <AssociationSet Name="FK__May__ID_KhachHan__267ABA7A" Association="Self.FK__May__ID_KhachHan__267ABA7A">
+    <AssociationSet Name="FK__May__ID_TaiKhoan__29572725" Association="Self.FK__May__ID_TaiKhoan__29572725">
       <End Role="TaiKhoan" EntitySet="TaiKhoan" />
       <End Role="May" EntitySet="May" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TaiKhoan__ID_Kha__267ABA7A" Association="Self.FK__TaiKhoan__ID_Kha__267ABA7A">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="TaiKhoan" EntitySet="TaiKhoan" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

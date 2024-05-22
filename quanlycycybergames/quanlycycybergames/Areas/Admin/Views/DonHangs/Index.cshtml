@@ -36,7 +36,7 @@
                                         @Html.DisplayNameFor(model => model.MaDH)
                                     </th>
                                     <th>
-                                        @Html.DisplayNameFor(model => model.TaiKhoan.TenKhachHang)
+                                        @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
                                     </th>
                                     <th>
                                         @Html.DisplayNameFor(model => model.ngayDatHang)
@@ -53,7 +53,7 @@
                                     <tr>
 
                                         <td>@Html.DisplayFor(modelItem => item.MaDH)</td>
-                                        <td>@Html.DisplayFor(modelItem => item.TaiKhoan.TenKhachHang)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)</td>
                                         <td>@Html.DisplayFor(modelItem => item.ngayDatHang)</td>
                                         <td>@Html.DisplayFor(modelItem => item.tongGia)</td>
                                         <td class="border-bottom-0">
@@ -86,5 +86,5 @@
                     <div cclass="alert alert-warning text-center" role="alert">Không tìm thấy đơn hàng</div>
                 }
             </div>
+        </div>
     </div>
-</div>

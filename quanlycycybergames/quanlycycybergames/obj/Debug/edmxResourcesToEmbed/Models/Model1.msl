@@ -32,6 +32,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="KhachHang">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Kho">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.Kho">
         <MappingFragment StoreEntitySet="Kho">
@@ -53,21 +63,19 @@
           <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
           <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
           <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="ID_TaiKhoan" ColumnName="ID_TaiKhoan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TaiKhoan">
       <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
-          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
-          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
-          <ScalarProperty Name="SDT" ColumnName="SDT" />
-          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-          <ScalarProperty Name="ThoiGianGiaNhap" ColumnName="ThoiGianGiaNhap" />
-          <ScalarProperty Name="TenDN" ColumnName="TenDN" />
+          <ScalarProperty Name="ID_TaiKhoan" ColumnName="ID_TaiKhoan" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
           <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="ThoiGianNap" ColumnName="ThoiGianNap" />
           <ScalarProperty Name="SoTienNap" ColumnName="SoTienNap" />
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -17,11 +17,11 @@ namespace quanlycycybergames.Models
         public string ID_May { get; set; }
         public string TenMay { get; set; }
         public string GiaMay { get; set; }
-        public Nullable<bool> HoatDong { get; set; }
+        public bool? HoatDong { get; set; }
         public Nullable<System.DateTime> ThoiGianMo { get; set; }
         public Nullable<System.DateTime> ThoiGianTat { get; set; }
         public Nullable<decimal> TongTien { get; set; }
-        public string ID_KhachHang { get; set; }
+        public string ID_TaiKhoan { get; set; }
     
         public virtual TaiKhoan TaiKhoan { get; set; }
     }

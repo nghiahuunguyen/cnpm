@@ -1,11 +1,6 @@
 ﻿@model quanlycycybergames.Models.TaiKhoan
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-}
-
-@{
     ViewBag.Title = "Chi tiết tài khoản";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
@@ -29,25 +24,20 @@
                     <thead class="text-dark fs-4">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.ID_KhachHang)
+                                @Html.DisplayNameFor(model => model.ID_TaiKhoan)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.TenKhachHang)
+                                @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
                             </th>
+
                             <th>
-                                @Html.DisplayNameFor(model => model.SDT)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.GioiTinh)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ThoiGianGiaNhap)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TenDN)
+                                @Html.DisplayNameFor(model => model.TenTaiKhoan)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Matkhau)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ThoiGianNap)
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.SoTienNap)
@@ -57,42 +47,26 @@
                     <tbody>
                         <tr>
                             <td>
-                                @Html.DisplayFor(model => model.ID_KhachHang)
+                                @Html.DisplayFor(model => model.ID_TaiKhoan)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.TenKhachHang)
+                                @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.SDT)
-                            </td>
-                            <td>
-                                @{
-                                    if (Model.GioiTinh.HasValue)
-                                    {
-                                        if (Model.GioiTinh.Value)
-                                        {
-                                            <span>Nam</span>
-                                        }
-                                        else
-                                        {
-                                            <span>Nữ</span>
-                                        }
-                                    }
-                                }
-                            </td>
-                            <td>
-                                @Html.DisplayFor(model => model.ThoiGianGiaNhap)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(model => model.TenDN)
+                                @Html.DisplayFor(model => model.TenTaiKhoan)
                             </td>
                             <td>
                                 @Html.DisplayFor(model => model.Matkhau)
                             </td>
                             <td>
+                                @Html.DisplayFor(model => model.ThoiGianNap)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(model => model.SoTienNap)
                             </td>
-                    </tbody>
+
+                    </tr>
+</tbody>
                 </table>
             </div>
         </div>

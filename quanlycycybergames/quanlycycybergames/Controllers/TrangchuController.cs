@@ -20,7 +20,7 @@ namespace quanlycycybergames.Controllers
         [HttpPost]
         public ActionResult Index(string username, string password)
         {
-            var user = db.TaiKhoan.FirstOrDefault(u => u.TenDN == username && u.Matkhau == password);
+            var user = db.TaiKhoan.FirstOrDefault(u => u.TenTaiKhoan == username && u.Matkhau == password);
 
             if (user != null)
             {

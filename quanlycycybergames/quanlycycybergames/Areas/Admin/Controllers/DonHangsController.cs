@@ -15,23 +15,21 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         private QuanLyCYBERGAMESEntities db = new QuanLyCYBERGAMESEntities();
 
         // GET: Admin/DonHangs
-        // GET: Admin/DonHangs
         public ActionResult Index(string searchName)
         {
-            var donHangs = db.DonHang.Include(d => d.TaiKhoan);
-
+            var donHangs = db.DonHang.Include(d => d.KhachHang);
             if (!string.IsNullOrEmpty(searchName))
             {
-                donHangs = donHangs.Where(d => d.TaiKhoan.TenKhachHang.Contains(searchName));
+                donHangs = donHangs.Where(d => d.KhachHang.TenKhachHang.Contains(searchName));
             }
 
             foreach (var donHang in donHangs)
             {
                 donHang.tongGia = db.ChiTietDonHang.Where(c => c.MaDH == donHang.MaDH).Sum(c => c.tongGia);
             }
-
             return View(donHangs.ToList());
         }
+
         // GET: Admin/DonHangs/Details/5
         public ActionResult Details(string id)
         {
@@ -44,18 +42,16 @@ namespace quanlycycybergames.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-
             donHang.tongGia = db.ChiTietDonHang.Where(c => c.MaDH == donHang.MaDH).Sum(c => c.tongGia);
-
             return View(donHang);
         }
 
         // GET: Admin/DonHangs/Create
         public ActionResult Create()
         {
-            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            List<KhachHang> List = db.KhachHang.ToList();
             ViewBag.KH = List;
-            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang");
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang");
             return View();
         }
 
@@ -72,10 +68,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            List<KhachHang> List = db.KhachHang.ToList();
             ViewBag.KH = List;
-
-            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }
 
@@ -91,9 +86,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            List<KhachHang> List = db.KhachHang.ToList();
             ViewBag.KH = List;
-            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }
 
@@ -110,9 +105,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            List<TaiKhoan> List = db.TaiKhoan.ToList();
+            List<KhachHang> List = db.KhachHang.ToList();
             ViewBag.KH = List;
-            ViewBag.ID_KhachHang = new SelectList(db.TaiKhoan, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", donHang.ID_KhachHang);
             return View(donHang);
         }
 

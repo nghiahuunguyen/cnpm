@@ -1,0 +1,72 @@
+﻿@model quanlycycybergames.Models.KhachHang
+
+@{
+    ViewBag.Title = "Chi tiết khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">CHI TIẾT KHÁCH HÀNG</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Edit", "KhachHangs", new { id = Model.ID_KhachHang })" class="btn btn-success"> <i class="fa fa-edit"> Sửa</i></a>
+                <a href="@Url.Action("Index", "KhachHangs")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_KhachHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenKhachHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SDT)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GioiTinh)
+                            </th>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.ID_KhachHang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TenKhachHang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.SDT)
+                            </td>
+                            <td>
+                                @{
+                                    if (Model.GioiTinh.HasValue)
+                                    {
+                                        if (Model.GioiTinh.Value)
+                                        {
+                                            <span>Nam</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Nữ</span>
+                                        }
+                                    }
+                                }
+                            </td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

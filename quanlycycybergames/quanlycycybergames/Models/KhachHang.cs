@@ -12,23 +12,23 @@ namespace quanlycycybergames.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TaiKhoan
+    public partial class KhachHang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TaiKhoan()
+        public KhachHang()
         {
-            this.May = new HashSet<May>();
+            this.DonHang = new HashSet<DonHang>();
+            this.TaiKhoan = new HashSet<TaiKhoan>();
         }
     
-        public string ID_TaiKhoan { get; set; }
-        public string TenTaiKhoan { get; set; }
-        public string Matkhau { get; set; }
-        public Nullable<System.DateTime> ThoiGianNap { get; set; }
-        public Nullable<decimal> SoTienNap { get; set; }
         public string ID_KhachHang { get; set; }
+        public string TenKhachHang { get; set; }
+        public string SDT { get; set; }
+        public Nullable<bool> GioiTinh { get; set; }
     
-        public virtual KhachHang KhachHang { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<May> May { get; set; }
+        public virtual ICollection<DonHang> DonHang { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TaiKhoan> TaiKhoan { get; set; }
     }
 }

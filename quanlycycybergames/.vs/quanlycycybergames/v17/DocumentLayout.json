@@ -1,117 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\congnghephanmem\\quanlycycybergames\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|d:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\controllers\\taikhoanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\controllers\\taikhoanscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\controllers\\mayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\controllers\\mayscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\views\\taikhoans\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\views\\taikhoans\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\views\\taikhoans\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\views\\taikhoans\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\controllers\\donhangscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\controllers\\dichvuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\controllers\\dichvuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedHeight": 335,
-          "SelectedChildIndex": 5,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Create.cshtml",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Create.cshtml",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Create.cshtml",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Create.cshtml",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAgwBYAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T02:23:29.602Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Index.cshtml",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Index.cshtml",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Index.cshtml",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Views\\TaiKhoans\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-19T02:19:41.381Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MaysController.cs",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\MaysController.cs",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Controllers\\MaysController.cs",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\MaysController.cs",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Controllers\\MaysController.cs",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAkwBIAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T02:17:48.247Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DonHangsController.cs",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\DonHangsController.cs",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Controllers\\DonHangsController.cs",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\DonHangsController.cs",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Controllers\\DonHangsController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T02:17:43.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "DichVusController.cs",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\DichVusController.cs",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Controllers\\DichVusController.cs",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\DichVusController.cs",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Controllers\\DichVusController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T02:17:37.895Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TaiKhoansController.cs",
-              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\TaiKhoansController.cs",
-              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Controllers\\TaiKhoansController.cs",
-              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Controllers\\TaiKhoansController.cs",
-              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Controllers\\TaiKhoansController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAkwD8AAAA3AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-19T02:13:45.434Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

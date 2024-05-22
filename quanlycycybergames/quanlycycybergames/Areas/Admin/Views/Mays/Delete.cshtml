@@ -26,6 +26,9 @@
                                 @Html.DisplayNameFor(model => model.TenMay)
                             </th>
                             <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenTaiKhoan)
+                            </th>
+                            <th>
                                 @Html.DisplayNameFor(model => model.HoatDong)
                             </th>
                             <th>
@@ -40,15 +43,15 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.TongTien)
                             </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.TaiKhoan.TenDN)
-                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
                                 @Html.DisplayFor(model => model.TenMay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenTaiKhoan)
                             </td>
                             <td>
                                 @if (Model.HoatDong.HasValue && Model.HoatDong.Value)
@@ -76,9 +79,7 @@
                             <td>
                                 @Html.DisplayFor(model => model.TongTien)
                             </td>
-                            <td>
-                                @Html.DisplayFor(model => model.TaiKhoan.TenDN)
-                            </td>
+
                             <td>
                                 @using (Html.BeginForm())
                                 {

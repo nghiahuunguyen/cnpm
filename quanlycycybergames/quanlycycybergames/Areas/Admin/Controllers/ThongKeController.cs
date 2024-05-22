@@ -21,7 +21,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                     .ToList();
 
                 var ngayNapList = dbContext.TaiKhoan
-                    .Select(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap))
+                    .Select(nt => DbFunctions.TruncateTime(nt.ThoiGianNap))
                     .Distinct()
                     .ToList();
 
@@ -37,7 +37,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                         .Sum(c => c.tongGia);
 
                     decimal? tongSoTienNap = dbContext.TaiKhoan
-                        .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap) == ThoiGianGiaNhap)
+                        .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianNap) == ThoiGianGiaNhap)
                         .Sum(nt => nt.SoTienNap);
 
                     decimal tongDoanhThuDonHangNgay = tongDoanhThuDonHang ?? 0;
@@ -109,7 +109,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
             {
                 // Lấy danh sách ngày từ trường ngayNap trong bảng NapTien
                 var ngayNapList = dbContext.TaiKhoan
-                    .Select(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap))
+                    .Select(nt => DbFunctions.TruncateTime(nt.ThoiGianNap))
                     .Distinct()
                     .ToList();
 
@@ -120,7 +120,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                 {
                     // Tính tổng số tiền nạp cho mỗi ngày
                     decimal? tongSoTienNap = dbContext.TaiKhoan
-                        .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianGiaNhap) == ngayNap)
+                        .Where(nt => DbFunctions.TruncateTime(nt.ThoiGianNap) == ngayNap)
                         .Sum(nt => nt.SoTienNap);
 
                     // Gán giá trị cho tongSoTienNap

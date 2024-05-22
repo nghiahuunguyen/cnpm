@@ -1,10 +1,9 @@
-﻿@model quanlycycybergames.Models.DonHang
+﻿@model quanlycycybergames.Models.KhachHang
 
 @{
     ViewBag.Title = "Xác nhận xóa";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 <div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
 
@@ -16,34 +15,52 @@
                 <h1 class="fw-bolder text-center">XÁC NHẬN XÓA </h1>
             </div>
             <div class="col-md-6 text-right">
-                <a href="@Url.Action("Index","DonHangs")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+                <a href="@Url.Action("Index","KhachHangs")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
             </div>
             <div class="table">
                 <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                     <thead class="text-dark fs-4">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+                                @Html.DisplayNameFor(model => model.ID_KhachHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.ngayDatHang)
+                                @Html.DisplayNameFor(model => model.TenKhachHang)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.tongGia)
+                                @Html.DisplayNameFor(model => model.SDT)
                             </th>
-
+                            <th>
+                                @Html.DisplayNameFor(model => model.GioiTinh)
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+                                @Html.DisplayFor(model => model.ID_KhachHang)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.ngayDatHang)
+                                @Html.DisplayFor(model => model.TenKhachHang)
                             </td>
                             <td>
-                                @Html.DisplayFor(model => model.tongGia)
+                                @Html.DisplayFor(model => model.SDT)
+                            </td>
+                            <td>
+                                @{
+                                    if (Model.GioiTinh.HasValue)
+                                    {
+                                        if (Model.GioiTinh.Value)
+                                        {
+                                            <span>Nam</span>
+                                        }
+                                        else
+                                        {
+                                            <span>Nữ</span>
+                                        }
+                                    }
+                                }
+                            </td>
                             </td>
                             <td>
                                 @using (Html.BeginForm())

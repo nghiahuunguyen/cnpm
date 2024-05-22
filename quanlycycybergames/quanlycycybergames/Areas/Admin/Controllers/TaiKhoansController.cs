@@ -21,9 +21,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                taiKhoans = taiKhoans.Where(t => t.TenKhachHang.Equals(searchString, StringComparison.OrdinalIgnoreCase) ||
-                                                 t.TenDN.Equals(searchString, StringComparison.OrdinalIgnoreCase) ||
-                                                 t.SDT.Equals(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+                taiKhoans = taiKhoans.Where(t =>t.TenTaiKhoan.Equals(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             return View(taiKhoans);
@@ -47,6 +45,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // GET: Admin/TaiKhoans/Create
         public ActionResult Create()
         {
+            List<KhachHang> List = db.KhachHang.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang");
             return View();
         }
 
@@ -55,20 +56,27 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,SoTienNap")] TaiKhoan taiKhoan)
+        public ActionResult Create([Bind(Include = "ID_TaiKhoan,TenTaiKhoan,Matkhau,ThoiGianNap,SoTienNap,ID_KhachHang")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {
-                if (db.TaiKhoan.Any(t => t.TenDN.Equals(taiKhoan.TenDN, StringComparison.OrdinalIgnoreCase)))
+                if (db.TaiKhoan.Any(t => t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan, StringComparison.OrdinalIgnoreCase)))
                 {
-                    ModelState.AddModelError("TenDN", "Tên này đã có người dùng.");
+                    ModelState.AddModelError("TenTaiKhoan", "Tên này đã có người dùng.");
+                    ViewBag.KH = db.KhachHang.ToList();
+                    ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
                     return View(taiKhoan);
                 }
+
                 db.TaiKhoan.Add(taiKhoan);
                 db.SaveChanges();
+
+                TempData["NotificationMessage"] = "Tạo mới tài khoản thành công";
                 return RedirectToAction("Index");
             }
 
+            ViewBag.KH = db.KhachHang.ToList();
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
             return View(taiKhoan);
         }
 
@@ -84,6 +92,9 @@ namespace quanlycycybergames.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            List<KhachHang> List = db.KhachHang.ToList();
+            ViewBag.KH = List;
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
             return View(taiKhoan);
         }
 
@@ -92,14 +103,28 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID_KhachHang,TenKhachHang,SDT,GioiTinh,ThoiGianGiaNhap,TenDN,Matkhau,SoTienNap")] TaiKhoan taiKhoan)
+        public ActionResult Edit([Bind(Include = "ID_TaiKhoan,TenTaiKhoan,Matkhau,ThoiGianNap,SoTienNap,ID_KhachHang")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {
+                var existingTaiKhoan = db.TaiKhoan.FirstOrDefault(t => t.ID_TaiKhoan != taiKhoan.ID_TaiKhoan && t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan, StringComparison.OrdinalIgnoreCase));
+                if (existingTaiKhoan != null)
+                {
+                    ModelState.AddModelError("TenTaiKhoan", "Tên này đã có người dùng.");
+                    ViewBag.KH = db.KhachHang.ToList();
+                    ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
+                    return View(taiKhoan);
+                }
+
                 db.Entry(taiKhoan).State = EntityState.Modified;
                 db.SaveChanges();
+
+                TempData["NotificationMessage"] = "Cập nhật tài khoản thành công";
                 return RedirectToAction("Index");
             }
+
+            ViewBag.KH = db.KhachHang.ToList();
+            ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
             return View(taiKhoan);
         }
 

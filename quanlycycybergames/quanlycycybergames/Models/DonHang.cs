@@ -27,6 +27,6 @@ namespace quanlycycybergames.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChiTietDonHang> ChiTietDonHang { get; set; }
-        public virtual TaiKhoan TaiKhoan { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }
