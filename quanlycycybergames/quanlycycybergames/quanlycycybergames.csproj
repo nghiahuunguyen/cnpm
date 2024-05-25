@@ -2071,7 +2071,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <Content Include="Public\plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
@@ -2179,11 +2178,13 @@
     <Content Include="Areas\Admin\Views\Mays\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Mays\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Mays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoans\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoans\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoans\Edit.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

@@ -57,6 +57,7 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.KhachHang.Add(khachHang);
                 db.SaveChanges();
                 return RedirectToAction("Index");

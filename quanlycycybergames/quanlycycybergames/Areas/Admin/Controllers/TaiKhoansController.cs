@@ -21,7 +21,8 @@ namespace quanlycycybergames.Areas.Admin.Controllers
 
             if (!string.IsNullOrEmpty(searchString))
             {
-                taiKhoans = taiKhoans.Where(t =>t.TenTaiKhoan.Equals(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
+                taiKhoans = taiKhoans.Where(t => t.KhachHang.TenKhachHang.Equals(searchString, StringComparison.OrdinalIgnoreCase) ||
+                t.TenTaiKhoan.Equals(searchString, StringComparison.OrdinalIgnoreCase)).ToList();
             }
 
             return View(taiKhoans);
@@ -65,20 +66,20 @@ namespace quanlycycybergames.Areas.Admin.Controllers
                     ModelState.AddModelError("TenTaiKhoan", "Tên này đã có người dùng.");
                     ViewBag.KH = db.KhachHang.ToList();
                     ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
-                    return View(taiKhoan);
+                    return View(taiKhoan); // Return the view with the error message
                 }
 
                 db.TaiKhoan.Add(taiKhoan);
                 db.SaveChanges();
-
-                TempData["NotificationMessage"] = "Tạo mới tài khoản thành công";
                 return RedirectToAction("Index");
             }
 
-            ViewBag.KH = db.KhachHang.ToList();
+            List<KhachHang> List = db.KhachHang.ToList();
+            ViewBag.KH = List;
             ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
             return View(taiKhoan);
         }
+
 
         // GET: Admin/TaiKhoans/Edit/5
         public ActionResult Edit(string id)
@@ -107,26 +108,29 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existingTaiKhoan = db.TaiKhoan.FirstOrDefault(t => t.ID_TaiKhoan != taiKhoan.ID_TaiKhoan && t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan, StringComparison.OrdinalIgnoreCase));
-                if (existingTaiKhoan != null)
+                // Check if the username already exists in another account
+                bool isDuplicateUsername = db.TaiKhoan.Any(t => t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan, StringComparison.OrdinalIgnoreCase) && t.ID_TaiKhoan != taiKhoan.ID_TaiKhoan);
+
+                if (isDuplicateUsername)
                 {
                     ModelState.AddModelError("TenTaiKhoan", "Tên này đã có người dùng.");
-                    ViewBag.KH = db.KhachHang.ToList();
+                    List<KhachHang> khachHangListForError = db.KhachHang.ToList(); // Changed variable name to 'khachHangListForError'
+                    ViewBag.KH = khachHangListForError;
                     ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
-                    return View(taiKhoan);
+                    return View(taiKhoan); // Return the view with the error message
                 }
 
                 db.Entry(taiKhoan).State = EntityState.Modified;
                 db.SaveChanges();
-
-                TempData["NotificationMessage"] = "Cập nhật tài khoản thành công";
                 return RedirectToAction("Index");
             }
 
-            ViewBag.KH = db.KhachHang.ToList();
+            List<KhachHang> khachHangListForReturn = db.KhachHang.ToList(); // Changed variable name to 'khachHangListForReturn'
+            ViewBag.KH = khachHangListForReturn;
             ViewBag.ID_KhachHang = new SelectList(db.KhachHang, "ID_KhachHang", "TenKhachHang", taiKhoan.ID_KhachHang);
             return View(taiKhoan);
         }
+
 
         // GET: Admin/TaiKhoans/Delete/5
         public ActionResult Delete(string id)
@@ -149,6 +153,14 @@ namespace quanlycycybergames.Areas.Admin.Controllers
         public ActionResult DeleteConfirmed(string id)
         {
             TaiKhoan taiKhoan = db.TaiKhoan.Find(id);
+
+            // Delete associated records in the "May" table
+            var associatedMayRecords = db.May.Where(m => m.ID_TaiKhoan == id).ToList();
+            foreach (var mayRecord in associatedMayRecords)
+            {
+                db.May.Remove(mayRecord);
+            }
+
             db.TaiKhoan.Remove(taiKhoan);
             db.SaveChanges();
             return RedirectToAction("Index");
