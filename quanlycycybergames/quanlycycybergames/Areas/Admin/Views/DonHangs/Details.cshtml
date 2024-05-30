@@ -1,0 +1,86 @@
+﻿@model quanlycycybergames.Models.DonHang
+@using quanlycycybergames.Models
+@{
+    ViewBag.Title = "Chi tiết đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">CHI TIẾT ĐƠN HÀNG</h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Edit", "ChiTietDonHang", new { id = Model.MaDH })" class="btn btn-success"> <i class="fa fa-edit"> Sửa</i></a>
+                <a href="@Url.Action("Index", "ChiTietDonHang")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ngayDatHang)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tongGia)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.KhachHang.TenKhachHang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ngayDatHang)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.tongGia)
+                            </td>
+                    </tbody>
+                </table>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                Tên dịch vụ
+                            </th>
+                            <th>
+                                Số lượng
+                            </th>
+                            <th>
+                                Tổng giá
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ChiTietDonHang)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DichVu.TenDV)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.soluong)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tongGia)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+﻿@model quanlycycybergames.Models.May
+
+@{
+    ViewBag.Title = "Xác nhận xóa";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">XÁC NHẬN XÓA </h1>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Index","Mays")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+            </div>
+            <div class="table">
+                <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                    <thead class="text-dark fs-4">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TenMay)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TaiKhoan.TenTaiKhoan)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.HoatDong)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GiaMay)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ThoiGianMo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ThoiGianTat)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TongTien)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => model.TenMay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TaiKhoan.TenTaiKhoan)
+                            </td>
+                            <td>
+                                @if (Model.HoatDong.HasValue && Model.HoatDong.Value)
+                                {
+                                    <span class="text-success">Hoạt động</span>
+                                }
+                                else if (Model.HoatDong.HasValue && !Model.HoatDong.Value)
+                                {
+                                    <span class="text-danger">Hư máy</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Không hoạt động</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.GiaMay)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ThoiGianMo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.ThoiGianTat)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.TongTien)
+                            </td>
+
+                            <td>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+
+                                    <div class="form-actions no-color">
+                                        <button class="btn btn-danger" type="submit" name="delete">Xóa <i class="fa fa-trash"></i></button>
+                                    </div>
+                                }
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<quanlycycybergames.Models.May>
+@{
+    ViewBag.Title = "Trang chủ admin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+    var sortedModel = Model.OrderBy(m => m.GiaMay);
+}
+
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var may in sortedModel)
+                {
+                    <div class="col-sm-6 col-md-4 col-xl-3">
+                        @if (may.HoatDong.HasValue && may.HoatDong.Value)
+                        {
+                            <div class="card shadow" style="height: 530px">
+                                <img src="~/Public/admin/pc/on.png" class="card-img-top p-2" alt="...">
+                                <h2 style=" position: absolute; top: 20%; left: 50%; transform: translate(-50%, -50%);">@may.TenMay</h2>
+                                <div class="m-3 text-center">
+
+                                    <h5 class="card-title">
+                                        <h5 class="text-success">HOẠT ĐỘNG</h5>
+                                    </h5>
+                                    <h5 class="card-title">
+                                        <h5 class="text-success">Giá Máy @may.GiaMay</h5>
+                                    </h5>
+                                    <h5 class="card-title">
+                                        <h5 class="card-title" style="color: black;">Tài khoản đăng nhập</h5>
+                                        <h5 class="text-success">"@may.TaiKhoan.TenTaiKhoan"</h5>
+                                    </h5>
+                                    <h5 class="card-title">
+                                        <h5 class="card-title" style="color: black;">Thời gian bắt đầu</h5>
+                                        <span class="text-success">"@may.ThoiGianMo"</span>
+                                    </h5>
+                                    <div>
+                                        <!-- Button popup -->
+                                        <a href="@Url.Action("Edit", "Admin", new { id = may.ID_May })">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else if (may.HoatDong.HasValue && !may.HoatDong.Value)
+                        {
+                            <div class="card shadow" style="height: 530px">
+                                <img src="~/Public/admin/pc/fix.png" class="card-img-top p-2 w-90" alt="...">
+                                <h2 class="text-bg-dark" style=" position: absolute; top: 23%; left: 50%; transform: translate(-50%, -50%);">@may.TenMay</h2>
+                                <div class="m-3 text-center">
+                                    <h5 class="card-title">
+                                        <h5 class="text-success">Giá Máy @may.GiaMay</h5>
+                                    </h5>
+                                    <span class="card-title text-danger">
+                                        <h1 class="text-danger p-2">MÁY ĐANG BẢO TRÌ</h1>
+                                    </span>
+
+                                    <div>
+                                        <!-- Button popup -->
+                                        <a href="@Url.Action("Edit", "Admin", new { id = may.ID_May })">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="card shadow" style="height: 530px">
+                                <img src="~/Public/admin/pc/off.jfif" class="card-img-top p-2" alt="...">
+                                <h2 class="text-dark" style=" position: absolute; top: 23%; left: 50%; transform: translate(-50%, -50%);">@may.TenMay</h2>
+                                <div class="m-3 text-center">
+                                    <h5 class="card-title">
+                                        <h5 class="text-success">Giá Máy @may.GiaMay</h5>
+                                    </h5>
+                                    <span class="card-title">
+                                        <h1 class="text-muted">KHÔNG HOẠT ĐỘNG</h1>
+                                    </span>
+                                    <div>
+                                        <!-- Button popup -->
+                                        <a href="@Url.Action("Edit", "Admin", new { id = may.ID_May })">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

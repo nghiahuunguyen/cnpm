@@ -1,0 +1,68 @@
+﻿@model quanlycycybergames.Models.KhachHang
+
+@{
+    ViewBag.Title = "Chỉnh sửa khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID_KhachHang);
+
+    <div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <!--  Header End -->
+            <div class="container-fluid">
+                <div class="my-3">
+                    <h1 class="fw-bolder text-center">CHỈNH SỬA KHÁCH HÀNG </h1>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="@Url.Action("Index", "KhachHangs")" class="btn btn-info"> <i class="fa fa-long-arrow-alt-left"></i> Quay lại</a>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TenKhachHang, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.TenKhachHang, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TenKhachHang, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SDT, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SDT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GioiTinh, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(model => model.GioiTinh, true) Nam
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(model => model.GioiTinh, false) Nữ
+                            </label>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.GioiTinh, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Lưu" class="btn btn-success create-button" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

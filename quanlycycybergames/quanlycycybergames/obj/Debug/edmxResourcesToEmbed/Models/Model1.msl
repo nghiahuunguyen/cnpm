@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyCYBERGAMESModelStoreContainer" CdmEntityContainer="QuanLyCYBERGAMESEntities">
+    <EntitySetMapping Name="ChiTietDonHang">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.ChiTietDonHang">
+        <MappingFragment StoreEntitySet="ChiTietDonHang">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="ID_DV" ColumnName="ID_DV" />
+          <ScalarProperty Name="soluong" ColumnName="soluong" />
+          <ScalarProperty Name="tongGia" ColumnName="tongGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DichVu">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DichVu">
+        <MappingFragment StoreEntitySet="DichVu">
+          <ScalarProperty Name="ID_DV" ColumnName="ID_DV" />
+          <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+          <ScalarProperty Name="AnhSP" ColumnName="AnhSP" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="ID_Mathang" ColumnName="ID_Mathang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonHang">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.DonHang">
+        <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="MaDH" ColumnName="MaDH" />
+          <ScalarProperty Name="ngayDatHang" ColumnName="ngayDatHang" />
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="tongGia" ColumnName="tongGia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHang">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kho">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.Kho">
+        <MappingFragment StoreEntitySet="Kho">
+          <ScalarProperty Name="ID_Mathang" ColumnName="ID_Mathang" />
+          <ScalarProperty Name="TenMatHang" ColumnName="TenMatHang" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="NgayNhap" ColumnName="NgayNhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="May">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.May">
+        <MappingFragment StoreEntitySet="May">
+          <ScalarProperty Name="ID_May" ColumnName="ID_May" />
+          <ScalarProperty Name="TenMay" ColumnName="TenMay" />
+          <ScalarProperty Name="GiaMay" ColumnName="GiaMay" />
+          <ScalarProperty Name="HoatDong" ColumnName="HoatDong" />
+          <ScalarProperty Name="ThoiGianMo" ColumnName="ThoiGianMo" />
+          <ScalarProperty Name="ThoiGianTat" ColumnName="ThoiGianTat" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="ID_TaiKhoan" ColumnName="ID_TaiKhoan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaiKhoan">
+      <EntityTypeMapping TypeName="QuanLyCYBERGAMESModel.TaiKhoan">
+        <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="ID_TaiKhoan" ColumnName="ID_TaiKhoan" />
+          <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+          <ScalarProperty Name="Matkhau" ColumnName="Matkhau" />
+          <ScalarProperty Name="ThoiGianNap" ColumnName="ThoiGianNap" />
+          <ScalarProperty Name="SoTienNap" ColumnName="SoTienNap" />
+          <ScalarProperty Name="ID_KhachHang" ColumnName="ID_KhachHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

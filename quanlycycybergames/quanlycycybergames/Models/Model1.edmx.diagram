@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="87c708dbb04544fead5397ef4ea574d6" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.ChiTietDonHang" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.DichVu" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.DonHang" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.KhachHang" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.Kho" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.May" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyCYBERGAMESModel.TaiKhoan" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__ChiTietDo__ID_DV__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__ChiTietDon__MaDH__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__DichVu__ID_Matha__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__DonHang__ID_Khac__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__TaiKhoan__ID_Kha__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyCYBERGAMESModel.FK__May__ID_TaiKhoan__29572725" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

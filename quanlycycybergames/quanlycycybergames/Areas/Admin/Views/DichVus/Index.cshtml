@@ -1,0 +1,91 @@
+﻿@model IEnumerable<quanlycycybergames.Models.DichVu>
+
+@{
+    ViewBag.Title = "Dịch Vụ";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3">
+                <h1 class="fw-bolder text-center">DANH SÁCH DỊCH VỤ</h1>
+            </div>
+            @using (Html.BeginForm("Index", "DichVus", FormMethod.Get, new { @class = "input-group Th d-flex justify-content-center" }))
+            {
+                <div class="input-group mb-3 w-50 m-auto">
+                    <input type="text" class="form-control" name="searchName" placeholder="Nhập tên dịch vụ" aria-label="Nhập tên dịch vụ" aria-describedby="button-addon2">
+                    <button class="btn btn-secondary" type="submit" id="button-addon2">Tìm kiếm</button>
+                </div>
+            }
+            <div class="col-md-6 text-right mb-3">
+                <a href="@Url.Action("Create", "DichVus")" class="btn btn-success"><i class="fa fa-plus"> Tạo mới</i></a>
+            </div>
+
+            @if (ViewBag.NoResults)
+            {
+                <div class="alert alert-warning text-center" role="alert">
+                    Không tìm thấy dịch vụ nào!
+                </div>
+            }
+            else
+            {
+                <div class="table">
+                    <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                        <thead class="text-dark fs-4">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ID_DV)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TenDV)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.AnhSP)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.GiaBan)
+                                </th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.ID_DV)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenDV)</td>
+                                    <td><img src="~/Public/img/anh/@item.AnhSP" alt="Img" class="img-fluid" /></td>
+                                    <td>@Html.DisplayFor(modelItem => item.GiaBan)</td>
+                                    <td class="border-bottom-0">
+                                        <a href="@Url.Action("Edit", "DichVus", new { id = item.ID_DV })">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="@Url.Action("Details", "DichVus", new { id = item.ID_DV })">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="ti ti-eye"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="@Url.Action("Delete", "DichVUs", new { id = item.ID_DV })">
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="ti ti-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>

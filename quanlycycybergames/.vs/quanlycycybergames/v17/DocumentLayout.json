@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\congnghephanmem\\quanlycycybergames\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|d:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\models\\chitietdonhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\models\\donhang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\views\\donhangs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\views\\donhangs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\areas\\admin\\views\\donhangs\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AE99D050-4859-4443-B4EB-7FCD70EA70FB}|quanlycycybergames\\quanlycycybergames.csproj|solutionrelative:quanlycycybergames\\areas\\admin\\views\\donhangs\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 335,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ChiTietDonHang.cs",
+              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Models\\ChiTietDonHang.cs",
+              "RelativeDocumentMoniker": "quanlycycybergames\\Models\\ChiTietDonHang.cs",
+              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Models\\ChiTietDonHang.cs",
+              "RelativeToolTip": "quanlycycybergames\\Models\\ChiTietDonHang.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T15:46:46.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DonHang.cs",
+              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Models\\DonHang.cs",
+              "RelativeDocumentMoniker": "quanlycycybergames\\Models\\DonHang.cs",
+              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Models\\DonHang.cs",
+              "RelativeToolTip": "quanlycycybergames\\Models\\DonHang.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T15:45:13.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Edit.cshtml",
+              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Edit.cshtml",
+              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Edit.cshtml",
+              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Edit.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T15:38:23.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Create.cshtml",
+              "RelativeDocumentMoniker": "quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Create.cshtml",
+              "ToolTip": "D:\\congnghephanmem\\quanlycycybergames\\quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Create.cshtml",
+              "RelativeToolTip": "quanlycycybergames\\Areas\\Admin\\Views\\DonHangs\\Create.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACQAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T15:38:16.86Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

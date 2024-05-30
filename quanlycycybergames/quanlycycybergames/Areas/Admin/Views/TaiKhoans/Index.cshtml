@@ -1,0 +1,84 @@
+﻿@model IEnumerable<quanlycycybergames.Models.TaiKhoan>
+
+@{
+    ViewBag.Title = "Tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="my-3 text-center">
+                <h1 class="fw-bolder">TÀI KHOẢN KHÁCH HÀNG</h1>
+            </div>
+
+            @using (Html.BeginForm("Index", "TaiKhoans", FormMethod.Get, new { @class = "input-group Th d-flex justify-content-center", id = "searchForm" }))
+            {
+                <div class="input-group mb-3 w-50 m-auto">
+                    <input type="text" class="form-control" name="searchString" placeholder="Nhập thông tin khách hàng" aria-label="Nhập thông tin khách hàng" aria-describedby="button-addon2">
+                    <button class="btn btn-secondary" type="submit" id="button-addon2">Tìm kiếm</button>
+                </div>
+            }
+            <div class="col-md-6 text-right">
+                <a href="@Url.Action("Create", "TaiKhoans")" class="btn btn-success"><i class="fa fa-plus"> Tạo tài khoản</i></a>
+            </div>
+            @if (Model.Any())
+            {
+                <div class="table">
+                    <table class="table table-striped bg-light-gray rounded" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                        <thead class="text-dark fs-4">
+                            <tr>
+                                <th class="border-bottom-0">
+                                    @Html.DisplayNameFor(model => model.ID_TaiKhoan)
+                                </th>
+                                <th>@Html.DisplayNameFor(model => model.KhachHang.TenKhachHang)</th>
+                                <th>@Html.DisplayNameFor(model => model.TenTaiKhoan)</th>
+                                <th>@Html.DisplayNameFor(model => model.ThoiGianNap)</th>
+                                <th>@Html.DisplayNameFor(model => model.SoTienNap)</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.ID_TaiKhoan)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KhachHang.TenKhachHang)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.TenTaiKhoan)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.ThoiGianNap)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SoTienNap)</td>
+                                    <td class="border-bottom-0">
+                                        <a href="@Url.Action("Edit", "TaiKhoans", new { id = item.ID_TaiKhoan })">
+                                            <button type="button" class="btn btn-success">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="@Url.Action("Details", "TaiKhoans", new { id = item.ID_TaiKhoan })">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="ti ti-eye"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="@Url.Action("Delete", "TaiKhoans", new { id = item.ID_TaiKhoan })">
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="ti ti-trash"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning text-center" role="alert">Không tìm thấy tài khoản</div>
+            }
+        </div>
+    </div>
+</div>

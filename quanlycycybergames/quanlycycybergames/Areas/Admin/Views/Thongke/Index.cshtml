@@ -1,0 +1,97 @@
+﻿@model List<quanlycycybergames.Models.ThongKeTongHop>
+
+@{
+    var dates = new List<string>();
+    var totals = new List<decimal>();
+
+    if (Model != null && Model.Any())
+    {
+        decimal cumulativeSum = 0;
+        DateTime previousDate = DateTime.MinValue;
+
+        foreach (var item in Model)
+        {
+            DateTime currentDate = item.NgayThongKe.Date;
+
+            if (currentDate != previousDate)
+            {
+                cumulativeSum = 0;
+            }
+
+            cumulativeSum += item.TongDoanhThuDonHang + item.TongSoTienNap;
+            dates.Add(currentDate.ToString("dd-MM-yyyy"));
+            totals.Add(cumulativeSum);
+
+            previousDate = currentDate;
+        }
+    }
+}
+
+@{
+    ViewBag.Title = "Thống kê";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper bg-light-gray" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <!--  Header End -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="my-3 text-center">
+                    <h1 class="fw-bolder">THỐNG KÊ</h1>
+                </div>
+                <select class="form-select" style="width: 200px; font-size: 14px;" onchange="navigateToOption(this)">
+                    <option value="1">Thống kê</option>
+                    <option value="2">Thống kê theo đơn hàng</option>
+                    <option value="3">Thống kê theo số tiền nạp</option>
+                </select>
+
+                <script>
+                    function navigateToOption(selectElement) {
+                        var selectedOption = selectElement.options[selectElement.selectedIndex];
+                        var value = selectedOption.value;
+                        var link;
+
+                        if (value === "1") {
+                            link = "/Thongke/Index";
+                        } else if (value === "2") {
+                            link = "/Admin/Thongke/ThongKeDoanhThuTheoDonHang";
+                        } else if (value === "3") {
+                            link = "/Admin/Thongke/ThongKeSoTienNap";
+                        }
+
+                        if (link) {
+                            window.location.href = link;
+                        }
+                    }
+                </script>
+
+                <div class="chart-container" style="position: relative; height: 300px; width: 100%;">
+                    <canvas id="column-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Create the column chart
+    var ctx = document.getElementById('column-chart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(dates)),
+            datasets: [{
+                label: 'Tổng tiền',
+                data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(totals)),
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        }
+    });
+</script>
